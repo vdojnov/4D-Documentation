@@ -56,12 +56,18 @@ $empLastName:= ds.Employees.get(20).lastName
 ```
 
 ### Query with a WHERE clause:
-You can use operators like '=', '<', '>', etc.
+* You can use operators like '=', '<', '>', etc.
+* You can use place holders using "_:1_"
+* You can partially search text using "@" either before, after, or both (i.e for "John": "name=@ohn", "name=Joh@", or "name=@oh@")
+
 
 ```
     // Gives you the first instance of the employee last name 
     // WHERE the first name is "John"
 $empLastName:=ds.Employees.query("firstName=John").first().lastName
+
+    // Using a placeholder (':1')
+$empLastName:=ds.Employees.query("firstName= :1"; John").first().lastName
 
     // Gives you the employee WHERE salary is over $100,000
 $empsOver100K:= ds.Employees.query("salary>100000")
@@ -94,9 +100,27 @@ $companyName:= $emp.employer.name
 $companyName:= ds.Employees.get(20).employer.name
 ```
 
+```
+    // Gives you all employees that work for company name Amazon
+$amazonEmps:= ds.Employees.query("employer.name=Amazon")
+```
+
 ### Query using One to many relationship name: employees
 
 ```
     // Gives you the name of the first employee that work in company with ID 5
 $emp:=ds.Company.get(5)).employees.first().firstName
 ```
+
+
+## ORDER BY
+
+You can order the selected query:
+```
+    // Gives you all employees
+$allEmps:= ds.Employees.all()
+
+    // Orders the employees in $allEmps by first name
+orderedEmps:= $allEmps.orderBy("firstName")
+```
+
