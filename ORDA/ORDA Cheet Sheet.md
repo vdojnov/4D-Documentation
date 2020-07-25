@@ -23,6 +23,30 @@ $allEmps:= ds.Employees.all()
 ```
 $emp:= ds.Employees.all().first()
 ```
+
+### Query the last Employee:
+
+```
+$emp:= ds.Employees.all().last()
+```
+
+### Query the next or pervious Employee:
+
+```
+    // Get all employees
+$allEmps:= ds.Employees.all()
+
+    //Get the first employee
+$firstEmp:= $allEmps.first()
+
+    // Get the second employee (Next in line)
+$secondEmp:= firstEmp.next()
+
+    // Get the first employee again (Previous in line)
+$firstEmpAgain:= $secondEmp.previous()
+```
+
+
 ### Query the Employees as an Array (Starting from 0,1,2...N):
 
 ```
@@ -123,4 +147,6 @@ $allEmps:= ds.Employees.all()
     // Orders the employees in $allEmps by first name
 orderedEmps:= $allEmps.orderBy("firstName")
 ```
+
+
 
