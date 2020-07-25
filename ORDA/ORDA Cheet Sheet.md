@@ -1,0 +1,102 @@
+# 4D ORDA Cheat Sheet 
+
+Below is the table structure we will use as the example:
+
+![alt text](https://github.com/vdojnov/4D-Documentation/blob/master/Images/Table%20Structure.JPG?raw=true)
+
+* Many to one relationship name: employer
+* One to many relationship name: employees 
+
+
+## Querying From One table:
+
+For retrieving data from your root 4D databse use _ds._ at the begining of query ( i.e _ds.Employee.all()_ ). You can can add remote databases, which will use a different prefix ( i.e _remoteDataStore.Employee.all()_ ) 
+
+
+### Query all employees:
+
+```
+$allEmps:= ds.Employees.all()
+```
+### Query the first Employee:
+
+```
+$emp:= ds.Employees.all().first()
+```
+### Query the Employees as an Array (Starting from 0,1,2...N):
+
+```
+    // Gives you the first employee
+$emp0:= ds.Employees.all()[0]
+
+    // Gives you the second employee
+$emp1:= ds.Employees.all()[1]
+    .
+    .
+    .
+    // Gives you the Nth employee
+$empN:= ds.Employees.all()[N]
+```
+
+### Query by ID:
+
+```
+    // Gives you the employee with ID 20
+$emp:= ds.Employees.get(20)
+```
+
+### Query one column of a row in database:
+
+```
+    // Gives you the employee first name with ID 20
+$empFirstName:= ds.Employees.get(20).firstName
+
+    // Gives you the employee last name with ID 20
+$empLastName:= ds.Employees.get(20).lastName
+```
+
+### Query with a WHERE clause:
+You can use operators like '=', '<', '>', etc.
+
+```
+    // Gives you the first instance of the employee last name 
+    // WHERE the first name is "John"
+$empLastName:=ds.Employees.query("firstName=John").first().lastName
+
+    // Gives you the employee WHERE salary is over $100,000
+$empsOver100K:= ds.Employees.query("salary>100000")
+```
+
+### Query with Multiple Where Clause:
+
+ You can use _**and**_ and _**or**_ operators
+
+ ```
+    // Gives you the employees whos name is John AND whos 
+    // salary is larger than $100,000
+$emps:=ds.Employees.query("firstName=John and salary>100000")
+
+    // Similarly, this gives you employees whos first name 
+    //is John OR last name is John
+$emps:=ds.Employees.query("firstName=John or lastName=John")
+```
+
+## Relational Query
+
+### Query using Many to one relationship name: employer
+
+```
+    // Gives you the Compnay Name where 
+$emp:=ds.Employees.get(20)
+$companyName:= $emp.employer.name
+
+    // Similarly, this does the same
+$companyName:= ds.Employees.get(20).employer.name
+```
+
+### Query using One to many relationship name: employees
+
+```
+    // Gives you the name of the first employee that work in company with ID 5
+$emp:=ds.Company.get(5)).employees.first().firstName
+```
