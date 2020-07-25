@@ -152,9 +152,10 @@ orderedEmps:= $allEmps.orderBy("firstName")
 
 ## COUNT
 
-If you want to get the count of row you can use _.length_
+If you want to get the count of rows in your selection you can use _.length_
 
-```4D
+```
     // Gives you the number of employees that work at Amazon
-$numAmazonEmps:= ds.Employees.query("employer.name=Amazon").length
+$AmazonEmps:= ds.Employees.query("employer.name=Amazon")
+$numAmazonEmps:= $AmazonEmps.length
 ```
