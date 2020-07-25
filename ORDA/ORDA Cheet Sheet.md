@@ -10,7 +10,7 @@ Below is the table structure we will use as the example:
 
 ## Querying From One table:
 
-For retrieving data from your root 4D databse use _ds._ at the begining of query ( i.e _ds.Employee.all()_ ). You can can add remote databases, which will use a different prefix ( i.e _remoteDataStore.Employee.all()_ ) 
+For retrieving data from your root 4D database use _ds._ at the beginning  of query ( i.e _ds.Employee.all()_ ). You can can add remote databases, which will use a different prefix ( i.e _remoteDataStore.Employee.all()_ ) 
 
 
 ### Query all employees:
@@ -30,7 +30,7 @@ $emp:= ds.Employees.all().first()
 $emp:= ds.Employees.all().last()
 ```
 
-### Query the next or pervious Employee:
+### Query the next or previous Employee:
 
 ```4D
     // Get all employees
@@ -97,7 +97,7 @@ $empLastName:=ds.Employees.query("firstName= :1"; "John").first().lastName
 $empsOver100K:= ds.Employees.query("salary>100000")
 ```
 
-### Query with Multiple Where Clause:
+### Query with Multiple WHERE Clauses:
 
  You can use _**and**_ and _**or**_ operators
 
@@ -111,7 +111,7 @@ $emps:=ds.Employees.query("firstName=John and salary>100000")
 $emps:=ds.Employees.query("firstName=John or lastName=John")
 ```
 
-## Relational Query
+## Relational Query (JOINS)
 
 ### Query using Many to one relationship name: employer
 
@@ -150,4 +150,11 @@ orderedEmps:= $allEmps.orderBy("firstName")
 ```
 
 
+## COUNT
 
+If you want to get the count of row you can use _.length_
+
+```4D
+    // Gives you the number of employees that work at Amazon
+$numAmazonEmps:= ds.Employees.query("employer.name=Amazon").length
+```
