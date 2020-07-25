@@ -2,7 +2,7 @@
 
 Below is the table structure we will use as the example:
 
-![alt text](https://github.com/vdojnov/4D-Documentation/blob/master/Images/Table%20Structure.JPG?raw=true)
+![alt text](https://github.com/vdojnov/4D-Documentation/blob/master/Images/Table%20Structure%20Images.JPG?raw=true)
 
 * Many to one relationship name: employer
 * One to many relationship name: employees 
@@ -133,7 +133,7 @@ $amazonEmps:= ds.Employees.query("employer.name=Amazon")
 
 ```4D
     // Gives you the name of the first employee that work in company with ID 5
-$emp:=ds.Company.get(5)).employees.first().firstName
+$emp:=ds.Companies.get(5)).employees.first().firstName
 ```
 
 
