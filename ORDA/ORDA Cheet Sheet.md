@@ -15,24 +15,24 @@ For retrieving data from your root 4D databse use _ds._ at the begining of query
 
 ### Query all employees:
 
-```
+```4D
 $allEmps:= ds.Employees.all()
 ```
 ### Query the first Employee:
 
-```
+```4D
 $emp:= ds.Employees.all().first()
 ```
 
 ### Query the last Employee:
 
-```
+```4D
 $emp:= ds.Employees.all().last()
 ```
 
 ### Query the next or pervious Employee:
 
-```
+```4D
     // Get all employees
 $allEmps:= ds.Employees.all()
 
@@ -49,7 +49,7 @@ $firstEmpAgain:= $secondEmp.previous()
 
 ### Query the Employees as an Array (Starting from 0,1,2...N):
 
-```
+```4D
     // Gives you the first employee
 $emp0:= ds.Employees.all()[0]
 
@@ -64,14 +64,14 @@ $empN:= ds.Employees.all()[N]
 
 ### Query by ID:
 
-```
+```4D
     // Gives you the employee with ID 20
 $emp:= ds.Employees.get(20)
 ```
 
 ### Query one column of a row in database:
 
-```
+```4D
     // Gives you the employee first name with ID 20
 $empFirstName:= ds.Employees.get(20).firstName
 
@@ -85,13 +85,13 @@ $empLastName:= ds.Employees.get(20).lastName
 * You can partially search text using "@" either before, after, or both (i.e for "John": "name=@ohn", "name=Joh@", or "name=@oh@")
 
 
-```
+```4D
     // Gives you the first instance of the employee last name 
     // WHERE the first name is "John"
 $empLastName:=ds.Employees.query("firstName=John").first().lastName
 
     // Using a placeholder (':1')
-$empLastName:=ds.Employees.query("firstName= :1"; John").first().lastName
+$empLastName:=ds.Employees.query("firstName= :1"; "John").first().lastName
 
     // Gives you the employee WHERE salary is over $100,000
 $empsOver100K:= ds.Employees.query("salary>100000")
@@ -101,7 +101,7 @@ $empsOver100K:= ds.Employees.query("salary>100000")
 
  You can use _**and**_ and _**or**_ operators
 
- ```
+ ```4D
     // Gives you the employees whos name is John AND whos 
     // salary is larger than $100,000
 $emps:=ds.Employees.query("firstName=John and salary>100000")
@@ -115,7 +115,7 @@ $emps:=ds.Employees.query("firstName=John or lastName=John")
 
 ### Query using Many to one relationship name: employer
 
-```
+```4D
     // Gives you the Compnay Name where 
 $emp:=ds.Employees.get(20)
 $companyName:= $emp.employer.name
@@ -124,14 +124,14 @@ $companyName:= $emp.employer.name
 $companyName:= ds.Employees.get(20).employer.name
 ```
 
-```
+```4D
     // Gives you all employees that work for company name Amazon
 $amazonEmps:= ds.Employees.query("employer.name=Amazon")
 ```
 
 ### Query using One to many relationship name: employees
 
-```
+```4D
     // Gives you the name of the first employee that work in company with ID 5
 $emp:=ds.Company.get(5)).employees.first().firstName
 ```
@@ -140,7 +140,8 @@ $emp:=ds.Company.get(5)).employees.first().firstName
 ## ORDER BY
 
 You can order the selected query:
-```
+
+```4D
     // Gives you all employees
 $allEmps:= ds.Employees.all()
 
