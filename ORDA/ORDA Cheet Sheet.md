@@ -40,7 +40,7 @@ $allEmps:= ds.Employees.all()
 $firstEmp:= $allEmps.first()
 
     // Get the second employee (Next in line)
-$secondEmp:= firstEmp.next()
+$secondEmp:= $firstEmp.next()
 
     // Get the first employee again (Previous in line)
 $firstEmpAgain:= $secondEmp.previous()
