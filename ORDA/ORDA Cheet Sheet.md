@@ -160,6 +160,7 @@ $AmazonEmps:= ds.Employees.query("employer.name=Amazon")
 $numAmazonEmps:= $AmazonEmps.length
 ```
 
+
 ## Average / .average()
 
 Takes a column as a parameter and returns the average
@@ -169,6 +170,7 @@ Takes a column as a parameter and returns the average
 $AmazonEmps:= ds.Employees.query("employer.name=Amazon")
 $averageSalary:= $AmazonEmps.average("salary")
 ```
+
 
 ## DELETE / .drop()
 
@@ -181,6 +183,7 @@ ds.Employees.get(5).drop()
     // Delete all employees that work for company with ID 4
 ds.Employees.query("companyID=4").drop()
 ```
+
 
 ## SLICE / .slice()
 Returns a collection of rows at a specified index
