@@ -137,7 +137,7 @@ $emp:=ds.Companies.get(5)).employees.first().firstName
 ```
 
 
-## ORDER BY
+## ORDER BY / .orderBy()
 
 You can order the selected query:
 
@@ -150,7 +150,7 @@ orderedEmps:= $allEmps.orderBy("firstName")
 ```
 
 
-## COUNT
+## COUNT / .length()
 
 If you want to get the count of rows in your selection you can use _.length_
 
@@ -159,3 +159,31 @@ If you want to get the count of rows in your selection you can use _.length_
 $AmazonEmps:= ds.Employees.query("employer.name=Amazon")
 $numAmazonEmps:= $AmazonEmps.length
 ```
+
+## DELETE / .drop()
+
+You can delete a single record or do a bulk delete using _.drop()_:
+
+```4D
+    // Delete the employee with ID 5
+ds.Employees.get(5).drop()
+
+    Delete all employees that work for compnay with ID 4
+ds.Employees.query("companyID=4").drop()
+```
+
+## SLICE / .slice()
+Returns a collection of rows at a specified index
+* Slice takes a parameter either 1 or 2 paramaters
+* The first one is the start index (inclusive). (0 being the first index)
+* The second its the end index (exclusive)
+
+```4D
+    // Gives you a collection of all rows starting from the 3rd row
+$afterThird:= ds.Employees.all().slice(2)
+
+    // Gives you a collection of the first 5 rows
+$firstFive:=ds.Employees.all().slice(0;5)
+```
+
+
