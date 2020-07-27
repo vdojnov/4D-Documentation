@@ -88,7 +88,7 @@ $empLastName:= ds.Employees.get(20).lastName
 ```4D
     // Gives you the first instance of the employee last name 
     // WHERE the first name is "John"
-$empLastName:=ds.Employees.query("firstName=John").first().lastName
+$empLastName:=ds.Employees.query("firstName='John'").first().lastName
 
     // Using a placeholder (':1')
 $empLastName:=ds.Employees.query("firstName= :1"; "John").first().lastName
@@ -108,7 +108,7 @@ $emps:=ds.Employees.query("firstName=John and salary>100000")
 
     // Similarly, this gives you employees whos first name 
     //is John OR last name is John
-$emps:=ds.Employees.query("firstName=John or lastName=John")
+$emps:=ds.Employees.query("firstName='John' or lastName='John'")
 ```
 
 ## Relational Query (JOINS)
@@ -126,7 +126,7 @@ $companyName:= ds.Employees.get(20).employer.name
 
 ```4D
     // Gives you all employees that work for company name Amazon
-$amazonEmps:= ds.Employees.query("employer.name=Amazon")
+$amazonEmps:= ds.Employees.query("employer.name='Amazon'")
 ```
 
 ### Query using One to many relationship name: employees
@@ -156,7 +156,7 @@ If you want to get the count of rows in your selection you can use _.length_
 
 ```4D
     // Gives you the number of employees that work at Amazon
-$AmazonEmps:= ds.Employees.query("employer.name=Amazon")
+$AmazonEmps:= ds.Employees.query("employer.name='Amazon'")
 $numAmazonEmps:= $AmazonEmps.length
 ```
 
@@ -167,7 +167,7 @@ Takes a column as a parameter and returns the average
 
 ```4D
     // Gives you the average salary of an Amazon employee
-$AmazonEmps:= ds.Employees.query("employer.name=Amazon")
+$AmazonEmps:= ds.Employees.query("employer.name='Amazon'")
 $averageSalary:= $AmazonEmps.average("salary")
 ```
 
