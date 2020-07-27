@@ -160,6 +160,16 @@ $AmazonEmps:= ds.Employees.query("employer.name=Amazon")
 $numAmazonEmps:= $AmazonEmps.length
 ```
 
+## Average / .average()
+
+Takes a column as a parameter and returns the average
+
+```4D
+    // Gives you the average salary of an Amazon employee
+$AmazonEmps:= ds.Employees.query("employer.name=Amazon")
+$averageSalary:= $AmazonEmps.average("salary")
+```
+
 ## DELETE / .drop()
 
 You can delete a single record or do a bulk delete using _.drop()_:
