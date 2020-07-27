@@ -184,9 +184,9 @@ ds.Employees.query("companyID=4").drop()
 
 ## SLICE / .slice()
 Returns a collection of rows at a specified index
-* Slice takes a parameter either 1 or 2 paramaters
+* Slice takes either 1 or 2 parameters
 * The first one is the start index (inclusive). (0 being the first index)
-* The second its the end index (exclusive)
+* The second is the end index (exclusive)
 
 ```4D
     // Gives you a collection of all rows starting from the 3rd row
