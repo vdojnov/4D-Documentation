@@ -150,7 +150,7 @@ orderedEmps:= $allEmps.orderBy("firstName")
 ```
 
 
-## COUNT / .length()
+## COUNT / .length
 
 If you want to get the count of rows in your selection you can use _.length_
 
