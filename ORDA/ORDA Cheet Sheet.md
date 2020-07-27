@@ -168,7 +168,7 @@ You can delete a single record or do a bulk delete using _.drop()_:
     // Delete the employee with ID 5
 ds.Employees.get(5).drop()
 
-    Delete all employees that work for company with ID 4
+    // Delete all employees that work for company with ID 4
 ds.Employees.query("companyID=4").drop()
 ```
 
