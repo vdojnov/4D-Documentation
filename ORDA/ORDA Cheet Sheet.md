@@ -197,3 +197,7 @@ $firstFive:=ds.Employees.all().slice(0;5)
 ```
 
 
+# Related 4D Documentation Links
+* [4D ORDA Docs](https://developer.4d.com/docs/en/ORDA/ordaClasses.htm)
+* [ORDA Intro Video](https://youtu.be/L_9YJopIg3A)
+* [4D ORDA MasterClass Video](https://youtu.be/Nk8TUzeTF-k)
