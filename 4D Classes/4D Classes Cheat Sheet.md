@@ -195,3 +195,28 @@ C_TEXT($0)
     // Use Super.myFunction() to call a fucntion from parent class
 $0:= Super.whoAmI() + " My GPA is " + This.GPA + "."
 ```
+
+## Class Commands
+
+* ```OB Instance of``` returns true if object belongs to class or to one of its inherited classes, and false otherwise.
+* ```OB Class``` returns the class of the object passed in parameter.
+
+
+
+```4D
+    // Method: randomMethod
+
+C_OBJECT($student; $class; $parentClass)
+C_BOOLEAN($instance)
+
+$student:= cs.Student.new("John";"Doe";19;3.8)
+
+    //Returns True because Student is an Instance of Person
+$instance:=OB Instance of($student;cs.Person) 
+
+    //Returns Class: Student because $student is an Object of class Student
+$class:=OB Class($student)
+
+    //Returns Class: Person because there superclass of Student is Person
+$parentClass:= $class.superclass    
+```
