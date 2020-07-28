@@ -223,3 +223,4 @@ $parentClass:= $class.superclass
 
 # Related 4D Documentation Links
 * [4D Documentation](https://developer.4d.com/docs/en/Concepts/classes.html)
+* [Object-oriented development with 4D Video](https://www.youtube.com/watch?v=mAtrBdjSs9c)
