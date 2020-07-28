@@ -100,7 +100,7 @@ C_OBJECT($personObject)
 $personObject:= cs.Person.new("Mike";"Smith";25)
 
     // OR
-    
+
     // You can create it one by one
 $personObject2:=cs.Person.new()
 $personObject2.firstName:="Mike"
@@ -208,6 +208,7 @@ Function introduceMe
     // Method: randomMethod
 
 C_OBJECT($student; $class; $parentClass)
+C_TEXT($className)
 C_BOOLEAN($instance)
 
 $student:= cs.Student.new("John";"Doe";19;3.8)
@@ -217,6 +218,9 @@ $instance:=OB Instance of($student;cs.Person)
 
     //Returns Class: Student because $student is an Object of class Student
 $class:=OB Class($student)
+
+    //Returns "Student" string (Name of the class)
+$className:=$class.name
 
     //Returns Class: Person because there superclass of Student is Person
 $parentClass:= $class.superclass    
