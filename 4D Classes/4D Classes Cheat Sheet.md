@@ -32,12 +32,11 @@ We will write a ```Class constructor``` of a class named "Person" as an example:
     // Class: Person
 
 Class constructor
-
-C_TEXT($1;$2)
-C_LONGINT($3)
-This.firstName:= $1
-This.lastName:= $2
-This.age:= $3
+    C_TEXT($1;$2)
+    C_LONGINT($3)
+    This.firstName:= $1
+    This.lastName:= $2
+    This.age:= $3
 ```
 
 ## Class Functions
@@ -48,15 +47,14 @@ To write a class function you use the keyword "Function" along with the function
     // Class: Person
 
 Class constructor
-
-C_TEXT($1;$2)
-C_LONGINT($3)
-This.firstName:= $1
-This.lastName:= $2
-This.age:= $3
+    C_TEXT($1;$2)
+    C_LONGINT($3)
+    This.firstName:= $1
+    This.lastName:= $2
+    This.age:= $3
 
 
 Function whoAmI
-C_TEXT($0)
-$0:= "Hi, my name is " + This.firstName + " " + This.lastName.
+    C_TEXT($0)
+    $0:= "Hi, my name is " + This.firstName + " " + This.lastName.
 ```
