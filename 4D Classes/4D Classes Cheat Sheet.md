@@ -130,7 +130,7 @@ $greetMike:= $personObject.greetPerson("John") // "Hello Mike, my name is John!
 
 We want to make a class **Student** that ```extends``` the class **Person**
 * We use the ```extends``` keyword to let 4D know Student is a child class of Person
-* We use the ```Super()``` keyword call the parent class (```Super()``` must be used before the ```This``` keyword)
+* We use the ```Super()``` keyword call the parent class (```Super()``` must be used before the ```This.``` keyword)
 
 ```4D
     // Class: Student
@@ -171,7 +171,7 @@ $0:= This.firstName + " has a GPA: " + String(This.GPA)
 
 ### Calling a parent function / _Super._
 
-Calling the parent _whoAmI()_ function in a child function using _Super_. ( _Super.whoAmI()_ )
+Calling the parent ```whoAmI()``` function in a child function using ```Super``` ( ```Super.whoAmI()``` )
 
 ```4D
     // Class: Student
