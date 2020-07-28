@@ -100,6 +100,7 @@ C_OBJECT($personObject)
 $personObject:= cs.Person.new("Mike";"Smith";25)
 
     // OR
+    
     // You can create it one by one
 $personObject2:=cs.Person.new()
 $personObject2.firstName:="Mike"
