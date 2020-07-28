@@ -82,7 +82,36 @@ Function whoAmI
 Function greetPerson
 	C_TEXT($0;$1;$greeterName)
 	$greeterName:= $1
-	$0:= "Hello " + This.firstName + ", My name is " + $greeterName + "!"
+	$0:= "Hello " + This.firstName + ", my name is " + $greeterName + "!"
 ```
+
+
+## Creating a Object
+
+### New Object / _.new()_
+In a method you can create a new object from the class, we are going to create a person "Mike Smith" who is 25 years old.
+* Remember to use _cs._ before the Class Name
+
+```4D
+    //Create new person Object
+C_OBJECT($personObject)
+
+$personObject:= cs.Person.new("Mike";"Smith";24)
+
+```
+
+### Calling a ```Class Function``` on the object
+
+```4D
+
+    // Without parameter
+$sayHello:= $personObject.whoAmI() // "Hi, my name is Mike Smith.
+
+    // With parameter
+$personObject.greetPerson("John") // "Hello Mike, my name is John!
+```
+
+## Inheritence
+
 
 
