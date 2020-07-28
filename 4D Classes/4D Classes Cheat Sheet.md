@@ -57,4 +57,5 @@ Class constructor
 Function whoAmI
     C_TEXT($0)
     $0:= "Hi, my name is " + This.firstName + " " + This.lastName + "."
+    $1:= This.firstName
 ```
