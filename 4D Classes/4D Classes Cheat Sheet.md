@@ -220,3 +220,6 @@ $class:=OB Class($student)
     //Returns Class: Person because there superclass of Student is Person
 $parentClass:= $class.superclass    
 ```
+
+# Related 4D Documentation Links
+* [4D Documentation](https://developer.4d.com/docs/en/Concepts/classes.html)
