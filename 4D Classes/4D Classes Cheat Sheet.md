@@ -1,8 +1,8 @@
 # Classes in 4D - Cheat Sheet
 
-* You can intanciate Objects from anywhere in you code when a Class is defined
-* A class object is a shared object and can therefore be accessed from different 4D processes simultaneously
-* A class can ```extend``` another class inheriting from its fucntions
+* You can instantiate Objects from anywhere in your code when a Class is defined
+* A class object is a shared object and can, therefore, be accessed from different 4D processes simultaneously
+* A class can ```extend``` another class inheriting from its functions
 * Class names should be [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) compliant 
 
 
@@ -54,7 +54,7 @@ Class constructor
     This.lastName:= $2
     This.age:= $3
 
-    // Class function that return who the person is
+    // Class function that returns who the person is
 Function whoAmI
     C_TEXT($0)
     $0:= "Hi, my name is " + This.firstName + " " + This.lastName + "."
@@ -86,16 +86,16 @@ Function greetPerson
 ```
 
 
-## Creating a Object
+## Creating an Object
 
 ### New Object / _.new()_
-In a method you can create a new object from the class, we are going to create a person "Mike Smith" who is 25 years old.
+In a method you can create a new object from the class, we are going to create a Person "Mike Smith" who is 25 years old.
 * Remember to use _cs._ before the Class Name
 
 ```4D
     // Method: randomMethod
 
-    //Create new person Object
+    //Create new a Person Object
 C_OBJECT($personObject)
 $personObject:= cs.Person.new("Mike";"Smith";25)
 
@@ -124,7 +124,7 @@ $sayHello:= $personObject.whoAmI() // "Hi, my name is Mike Smith.
 $greetMike:= $personObject.greetPerson("John") // "Hello Mike, my name is John!
 ```
 
-## Inheritence
+## Inheritance
 
 ### Creating a Child Class 
 
@@ -149,7 +149,7 @@ Class constructor
 
 ### Child Class Functions
 
-Similarly a child class can have its own functions:
+Similarly, a child class can have its own functions:
 
 ```4D
     // Class: Student
@@ -198,7 +198,7 @@ Function introduceMe
 
 ## Class Commands
 
-* ```OB Instance of``` returns true if object belongs to class or to one of its inherited classes, and false otherwise.
+* ```OB Instance of``` returns true if the object belongs to a class or to one of its inherited classes, and false otherwise.
 * ```OB Class``` returns the class of the object passed in parameter.
 
 
@@ -220,3 +220,7 @@ $class:=OB Class($student)
     //Returns Class: Person because there superclass of Student is Person
 $parentClass:= $class.superclass    
 ```
+
+# Related 4D Documentation Links
+* [4D Documentation](https://developer.4d.com/docs/en/Concepts/classes.html)
+* [Object-oriented development with 4D Video](https://www.youtube.com/watch?v=mAtrBdjSs9c)
