@@ -7,14 +7,14 @@
 
 
 
-<!-- To access available classes you must use _cs._ which refers to Class Store.
+	<!-- To access available classes you must use _cs._ which refers to Class Store.
 
-```4D
-    // Get property of an object 
-$property:= cs.ClassName.property
+	```4D
+	    // Get property of an object 
+	$property:= cs.ClassName.property
 
-$functionOutput:= cs.ClassName.function()
-``` -->
+	$functionOutput:= cs.ClassName.function()
+	``` -->
 
 # Class KeyWords
 
