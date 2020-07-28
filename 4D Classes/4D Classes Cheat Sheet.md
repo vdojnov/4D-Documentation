@@ -166,8 +166,8 @@ Class constructor
 	This.GPA:=$4
 
 Function myGPA
-C_TEXT($0)
-$0:= This.firstName + " has a GPA: " + String(This.GPA)
+    C_TEXT($0)
+    $0:= This.firstName + " has a GPA: " + String(This.GPA)
 ```
 
 ### Calling a parent function / _Super._
