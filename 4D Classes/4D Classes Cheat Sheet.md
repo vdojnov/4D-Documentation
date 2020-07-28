@@ -93,25 +93,105 @@ In a method you can create a new object from the class, we are going to create a
 * Remember to use _cs._ before the Class Name
 
 ```4D
+    // Method: randomMethod
+
     //Create new person Object
 C_OBJECT($personObject)
+$personObject:= cs.Person.new("Mike";"Smith";25)
 
-$personObject:= cs.Person.new("Mike";"Smith";24)
+    // OR
+    // You can create it one by one
+$personObject2:=cs.Person.new()
+$personObject2.firstName:="Mike"
+$personObject2.lastName:="Smith"
+$personObject2.age:=25
 
 ```
 
 ### Calling a ```Class Function``` on the object
 
 ```4D
+    // Method: randomMethod
+
+    //Create new person Object
+C_OBJECT($personObject)
+$personObject:= cs.Person.new("Mike";"Smith";25)
 
     // Without parameter
 $sayHello:= $personObject.whoAmI() // "Hi, my name is Mike Smith.
 
     // With parameter
-$personObject.greetPerson("John") // "Hello Mike, my name is John!
+$greetMike:= $personObject.greetPerson("John") // "Hello Mike, my name is John!
 ```
 
 ## Inheritence
 
+### Creating a Child Class 
 
+We want to make a class **Student** that ```extends``` the class **Person**
+* We use the ```extends``` keyword to let 4D know Student is a child class of Person
+* We use the ```Super()``` keyword call the parent class (```Super()``` must be used before the ```This``` keyword)
 
+```4D
+    // Class: Student
+
+Class extends Person
+
+Class constructor
+	C_TEXT($1;$2)
+	C_LONGINT($3)
+	C_REAL($4)
+	
+    // Calls Person class for firstName, lastName and age. Used Super() before This.GPA!
+	Super($1;$2;$3)
+	This.GPA:=$4
+```
+
+### Child Class Functions
+
+Similarly a child class can have its own functions:
+
+```4D
+    // Class: Student
+
+Class extends Person
+
+Class constructor
+	C_TEXT($1;$2)
+	C_LONGINT($3)
+	C_REAL($4)
+	
+	Super($1;$2;$3)
+	This.GPA:=$4
+
+Function myGPA
+C_TEXT($0)
+$0:= This.firstName + " has a GPA: " + String(This.GPA)
+```
+
+### Calling a parent function / _Super._
+
+Calling the parent _whoAmI()_ function in a child function using _Super_. ( _Super.whoAmI()_ )
+
+```4D
+    // Class: Student
+
+Class extends Person
+
+Class constructor
+	C_TEXT($1;$2)
+	C_LONGINT($3)
+	C_REAL($4)
+	
+	Super($1;$2;$3)
+	This.GPA:=$4
+
+Function myGPA
+C_TEXT($0)
+$0:= This.firstName + " has a GPA: " + String(This.GPA) 
+
+Function introduceMe
+C_TEXT($0)
+    // Use Super.myFunction() to call a fucntion from parent class
+$0:= Super.whoAmI() + " My GPA is " + This.GPA + "."
+```
