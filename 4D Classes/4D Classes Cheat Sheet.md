@@ -203,7 +203,6 @@ Function introduceMe
 * ```OB Class``` returns the class of the object passed in parameter.
 
 
-
 ```4D
     // Method: randomMethod
 
