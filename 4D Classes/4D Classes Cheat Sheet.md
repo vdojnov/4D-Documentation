@@ -187,13 +187,13 @@ Class constructor
 	This.GPA:=$4
 
 Function myGPA
-C_TEXT($0)
-$0:= This.firstName + " has a GPA: " + String(This.GPA) 
+    C_TEXT($0)
+    $0:= This.firstName + " has a GPA: " + String(This.GPA) 
 
 Function introduceMe
-C_TEXT($0)
-    // Use Super.myFunction() to call a fucntion from parent class
-$0:= Super.whoAmI() + " My GPA is " + This.GPA + "."
+    C_TEXT($0)
+        // Use Super.myFunction() to call a fucntion from parent class
+    $0:= Super.whoAmI() + " My GPA is " + This.GPA + "."
 ```
 
 ## Class Commands
