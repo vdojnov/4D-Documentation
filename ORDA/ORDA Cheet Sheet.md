@@ -132,8 +132,8 @@ $amazonEmps:= ds.Employees.query("employer.name='Amazon'")
 ### Query using One to many relationship name: employees
 
 ```4D
-    // Gives you the name of the first employee that work in company with ID 5
-$emp:=ds.Companies.get(5)).employees.first().firstName
+    // Gives you the name of the first employee that works in company with ID 5
+$emp:=ds.Companies.get(5).employees.first().firstName
 ```
 
 

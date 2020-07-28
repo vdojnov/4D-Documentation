@@ -143,7 +143,7 @@ Class constructor
 	C_LONGINT($3)
 	C_REAL($4)
 	
-    // Calls Person class for firstName, lastName and age. Used Super() before This.GPA!
+    // Calls superclass Person for firstName, lastName and age. Use Super() before This.GPA!
 	Super($1;$2;$3)
 	This.GPA:=$4
 ```
