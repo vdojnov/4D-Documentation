@@ -41,8 +41,9 @@ Class constructor
 
 ## Class Functions
 
-To write a class function you use the keyword "Function" along with the function name (```Function myFunction```)
+To write a class function you use the keyword "Function" along with the function name (```Function myNewFunction```)
 
+### Function without parameter
 ```4D
     // Class: Person
 
@@ -53,9 +54,35 @@ Class constructor
     This.lastName:= $2
     This.age:= $3
 
-
+    // Class function that return who the person is
 Function whoAmI
     C_TEXT($0)
     $0:= "Hi, my name is " + This.firstName + " " + This.lastName + "."
-    $1:= This.firstName
 ```
+
+### Function with parameter
+
+Functions can also take parameters like the ```greetPerson``` function does
+
+```4D
+    // Class: Person
+
+Class constructor
+    C_TEXT($1;$2)
+    C_LONGINT($3)
+    This.firstName:= $1
+    This.lastName:= $2
+    This.age:= $3
+    
+Function whoAmI
+    C_TEXT($0)
+    $0:= "Hi, my name is " + This.firstName + " " + This.lastName + "."
+
+    // Class function that takes a parameter
+Function greetPerson
+	C_TEXT($0;$1;$greeterName)
+	$greeterName:= $1
+	$0:= "Hello " + This.firstName + ", My name is " + $greeterName + "!"
+```
+
+
