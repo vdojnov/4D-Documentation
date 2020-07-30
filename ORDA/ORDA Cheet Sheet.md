@@ -171,6 +171,23 @@ $AmazonEmps:= ds.Employees.query("employer.name='Amazon'")
 $averageSalary:= $AmazonEmps.average("salary")
 ```
 
+## ADD RECORD (INSERT) / .new()
+
+You can create a new object with the attributes from a table with the _.new()_ keyword, and then save it as a row in the table with the _.save()_ keyword.
+
+We can add a new company to out _Companies_ table:
+
+```4D
+    // Create a new object
+$newCompany:=ds.Companies.new()
+
+    // Assign values to attribues
+$newCompany.name:="Example Company"
+$newCompany.address:="123 Example St"
+
+    // Save the data to the database
+$newCompany.save()
+```
 
 ## DELETE / .drop()
 
