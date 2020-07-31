@@ -301,9 +301,6 @@ $0:= $emp
 We can call the function:
 
 ```4D
-
-var $hello: Integer
-
     // Changed Employee with ID 2 to work for Company with ID 6
 $employeeNewData:=ds.Employees.changeEmployeeWorkPlace(2; 6)
 ```
