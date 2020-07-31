@@ -280,7 +280,7 @@ This class is used to implement functions related to the [dataclass](https://doc
 
 * We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
 
-In this example we will look at the Employees DataClass. We want a fucntion for when an Employee changes companies:
+In this example we will look at the Employees DataClass. We want a functions for when an Employee changes companies:
 
 ```4D
 Class extends DataClass
@@ -301,6 +301,9 @@ $0:= $emp
 We can call the function:
 
 ```4D
+
+var $hello: Integer
+
     // Changed Employee with ID 2 to work for Company with ID 6
 $employeeNewData:=ds.Employees.changeEmployeeWorkPlace(2; 6)
 ```
@@ -308,6 +311,9 @@ $employeeNewData:=ds.Employees.changeEmployeeWorkPlace(2; 6)
 ## The Entity Class
 
 This class is used to implement functions related to an [entity](https://doc.4d.com/4Dv18R4/4D/18-R4/Entities.300-5005669.en.html).
+
+
+
 
 
 # Related 4D Documentation Links
