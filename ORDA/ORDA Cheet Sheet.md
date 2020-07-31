@@ -240,6 +240,74 @@ $afterThird:= ds.Employees.all().slice(2)
     // Gives you a collection of the first 5 rows
 $firstFive:=ds.Employees.all().slice(0;5)
 ```
+## ALL ORDA EntitySelection Functions
+
+You can see all The ORDA Entity Selection Fucntions [Click Here](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
+
+# Creating ORDA CLASSES in 4D v18 R4
+
+In 4D v18 R4 Project, when you create a table it will automatically ORDA classes for you to use. You can predefine fucntions to use later in your code.
+
+* It will create one **DataStore Class** 
+* As well as an additional three classes for each table (**DataClass**, **Entity Class**, and **Entity Selection Class**)
+* Each of these classes will ```extend``` another class, 4D will do that for you automatically
+
+## The DataStore Class
+
+This class is used to implement functions related to the [datastore](https://doc.4d.com/4Dv18R4/4D/18-R4/Datastores.300-5005671.en.html).
+
+* We only have one of these classes called "DataStore" in our Classes folder
+
+```4D
+Class extends DataStoreImplementation
+
+Function getDescription
+C_TEXT($0)
+$0:= "There are " + String(This.Employees.all().length) " employees working in " + String(This.Companies.all().length) + " companies around the world!"
+```
+
+When we call the DataStore function:
+
+```4D
+C_TEXT($description)
+$description:=ds.getDescription() // "There are 500 employees working in 80 companies around the world!"
+```
+
+
+## The DataClass Class
+
+This class is used to implement functions related to the [dataclass](https://doc.4d.com/4Dv18R4/4D/18-R4/Dataclasses.300-5005670.en.html).
+
+* We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
+
+In this example we will look at the Employees DataClass. We want a fucntion for when an Employee changes companies:
+
+```4D
+Class extends DataClass
+
+Function changeEmployeeWorkPlace
+C_LONGINT($1; $2; $empID; $newCompID)
+C_OBJECT($0; $emp)
+
+$empID:=$1
+$newCompID:=$2
+
+$emp:=ds.Employees.get($empID)
+$emp.companyID:= $newCompID
+$emp.save()
+
+$0:= $emp
+```
+We can call the function:
+
+```4D
+    // Changed Employee with ID 2 to work for Company with ID 6
+$employeeNewData:=ds.Employees.changeEmployeeWorkPlace(2; 6)
+```
+
+## The Entity Class
+
+This class is used to implement functions related to an [entity](https://doc.4d.com/4Dv18R4/4D/18-R4/Entities.300-5005669.en.html).
 
 
 # Related 4D Documentation Links
