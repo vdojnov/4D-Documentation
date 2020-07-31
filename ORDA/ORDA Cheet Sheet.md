@@ -189,6 +189,31 @@ $newCompany.address:="123 Example St"
 $newCompany.save()
 ```
 
+## UPDATE 
+
+Similarly, you can query and existing row and change the values:
+
+```4D
+    // Change the email of an employee with ID 5
+$emp:= ds.Employees.get(5)
+$emp.email:="newEmail@example.com"
+$emp.save()
+```
+
+You can also update multiple rows:
+
+* We want to give everyone working at Amazon a 5% raise
+
+```4D
+ C_OBJECT($emp)
+ For each($emp;ds.Employees.all())
+    If($emp.employer.name ="Amazon")
+       $emp.salary:=$emp.salary*1.05
+       $emp.save()
+    End if
+ End for each
+ ```
+
 ## DELETE / .drop()
 
 You can delete a single record or do a bulk delete using _.drop()_:
@@ -221,3 +246,4 @@ $firstFive:=ds.Employees.all().slice(0;5)
 * [4D ORDA Docs](https://developer.4d.com/docs/en/ORDA/ordaClasses.htm)
 * [ORDA Intro Video](https://youtu.be/L_9YJopIg3A)
 * [4D ORDA MasterClass Video](https://youtu.be/Nk8TUzeTF-k)
+* [ORDA Entity Selection](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
