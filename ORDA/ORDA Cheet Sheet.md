@@ -280,9 +280,9 @@ This class is used to implement functions related to the [dataclass](https://doc
 
 * We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
 
-In this example we will look at the Employees DataClass. We want a functions for when an Employee changes companies:
+In this example we will look at the Employees DataClass. We want a functions for when an Employee is hired by one of our companies:
 
-```4D
+<!-- ```4D
 Class extends DataClass
 
 Function changeEmployeeWorkPlace
@@ -303,7 +303,35 @@ We can call the function:
 ```4D
     // Changed Employee with ID 2 to work for Company with ID 6
 $employeeNewData:=ds.Employees.changeEmployeeWorkPlace(2; 6)
+``` -->
+
+```4D
+Class extends DataClass
+
+Function hireNewEmployee
+C_OBJECT($0; $1; $empData; $empHired; $newCompany)
+
+$empData:= $1
+ 
+$newCompany:=ds.Companies.query("name= :1"; $empData.companyName).first() // Get the company by querying the company name  
+$empHired:=ds.Employees.new() // Create new employee  
+$empHired.fromObject($empData) // Input employee data from parameter
+$empHired.employer:=$newCompany // Set the relation 'employer' to the queried compnay
+$empHired.save()
+
+$0:= $empHired
 ```
+
+We can call the function:
+
+```4D
+C_OBJECT($emp)
+
+$emp:= New Object("firstName";"Mary"; "lastName"; "Smith"; "email"; "mary@example.com"; "salary" ; 70000 ;"companyName"; "Amazon")
+
+$hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds new employee to table and returns that employee record
+```
+
 
 ## The Entity Class
 
