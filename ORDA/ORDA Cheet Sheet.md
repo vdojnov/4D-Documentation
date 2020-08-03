@@ -242,11 +242,11 @@ $firstFive:=ds.Employees.all().slice(0;5)
 ```
 ## ALL ORDA EntitySelection Functions
 
-You can see all The ORDA Entity Selection Functions [Click Here](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
+You can see all The ORDA Entity Selection Fucntions [Click Here](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
 
 # Creating ORDA CLASSES in 4D v18 R4
 
-In 4D v18 R4 Project, when you create a table it will automatically ORDA classes for you to use. You can predefine functions to use later in your code.
+In 4D v18 R4 Project, when you create a table it will automatically ORDA classes for you to use. You can predefine fucntions to use later in your code.
 
 * It will create one **DataStore Class** 
 * As well as an additional three classes for each table (**DataClass**, **Entity Class**, and **Entity Selection Class**)
@@ -308,7 +308,7 @@ This class is used to implement functions related to the [dataclass](https://doc
 
 * We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
 
-In this example we will look at the _Employees_ DataClass. We want a functions for when an Employee is hired by one of our companies:
+In this example, we will look at the _Employees_ DataClass. We want a function for when an employee is hired by one of our companies:
 
 <!-- ```4D
 Class extends DataClass
@@ -357,7 +357,7 @@ C_OBJECT($emp)
 
 $emp:= New Object("firstName";"Mary"; "lastName"; "Smith"; "email"; "mary@example.com"; "salary" ; 70000 ;"companyName"; "Amazon")
 
-$hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds a new employee to the database and returns that employee record
+$hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds new employee to databse and returns that employee record
 ```
 
 
@@ -481,9 +481,9 @@ The response from the server would look like:
 ## The DataClass Class
 A dataclass object is accessed via the **/rest/dataClassName** prefix
 
-We can call our [hireNewEmployee()](##The-DataClass-Class) function with the URL: **http://127.0.0.1:8044/rest/Schools/hireNewEmployee**
+We can call our [hireNewEmployee()](##The-DataClass-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Schools/hireNewEmployee**
 
-A parameters must be passed as a collection, in the body of the request:
+Parameters must be passed as a collection, in the body of the request:
 
 ```json
 [
@@ -520,7 +520,7 @@ The response from the server looks like this:
 ```
 
 ## The Entity Class
-An entity object is accessed via the **/rest/dataClassName(key)** prefix, where 'key' is the primary key of the entity.
+An entity object is accessed via the **/rest/dataClassName(key)** prefix, where key is the primary key of the entity.
 
 We can call our [worksInSameCompany()](##The-Entity-Class). This example is for an entity with primary key = 7. It’s accessed via the http://127.0.0.1:8044/rest/Employees(7)/worksInSameCompany/?$attributes=firstName,lastName URL.
 
@@ -560,11 +560,11 @@ An entity selection object can be accessed via the filter syntax. For example, /
 
 An entity selection can be accessed through other ways, too so be sure to check the [documentation](https://developer.4d.com/docs/en/REST/gettingStarted.html).
 
-We can call our [giveRaise()](##The-Entity-Selection-Class) function with the URL: **http://127.0.0.1:8044/rest/Employees/giveRaise/?$filter="salary<:1"&$params='[70000]'**
+We can call our [giveRaise()](##The-Entity-Selection-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Employees/giveRaise/?$filter="salary<:1"&$params='[70000]'**
 
-We call the _giveRasie()_ fucntion to all employees who have a salary of less than $70,000.
+We call the _giveRasie()_ fucntion to all employees who have a salary less than $70,000.
 
-Parameters must be passed as a collection, in the body of the request:
+A parameters must be passed as a collection, in the body of the request:
 
 ```json
 [
@@ -588,5 +588,3 @@ Here’s the response from the server (all of the concerned employees have been 
 * [4D ORDA MasterClass Video](https://youtu.be/Nk8TUzeTF-k)
 * [ORDA Entity Selection](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
 * [4D REST Server Docs](https://developer.4d.com/docs/en/REST/gettingStarted.html)
-* [ORDA Classes Blog](https://blog.4d.com/orda-classes-to-handle-your-data-model/)
-* [ORDA Classes REST blog](https://blog.4d.com/orda-data-model-classes-and-rest/)
