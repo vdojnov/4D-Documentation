@@ -308,7 +308,7 @@ This class is used to implement functions related to the [dataclass](https://doc
 
 * We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
 
-In this example we will look at the _Employees_ DataClass. We want a functions for when an Employee is hired by one of our companies:
+In this example, we will look at the _Employees_ DataClass. We want a function for when an employee is hired by one of our companies:
 
 <!-- ```4D
 Class extends DataClass
@@ -483,7 +483,7 @@ A dataclass object is accessed via the **/rest/dataClassName** prefix
 
 We can call our [hireNewEmployee()](##The-DataClass-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Schools/hireNewEmployee**
 
-A parameters must be passed as a collection, in the body of the request:
+Parameters must be passed as a collection, in the body of the request:
 
 ```json
 [
