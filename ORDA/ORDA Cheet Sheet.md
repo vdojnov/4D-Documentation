@@ -104,7 +104,7 @@ $empsOver100K:= ds.Employees.query("salary>100000")
  ```4D
     // Gives you the employees whos name is John AND whos 
     // salary is larger than $100,000
-$emps:=ds.Employees.query("firstName=John and salary>100000")
+$emps:=ds.Employees.query("firstName='John' and salary>100000")
 
     // Similarly, this gives you employees whos first name 
     //is John OR last name is John
@@ -299,9 +299,8 @@ When we call the DataStore function:
 
 ```4D
 C_COLLECTION($companyStats)
-$companyStats:=ds.getCompanyStats // Returns a collection of objects with information about each company
+$companyStats:=ds.getCompanyStats() // Returns a collection of objects with information about each company
 ```
-
 
 ## The DataClass Class
 
@@ -309,7 +308,7 @@ This class is used to implement functions related to the [dataclass](https://doc
 
 * We have a DataClass for both Employees and Companies, The can be found in the classes folder named "Companies" and "Employees"
 
-In this example we will look at the Employees DataClass. We want a functions for when an Employee is hired by one of our companies:
+In this example we will look at the _Employees_ DataClass. We want a functions for when an Employee is hired by one of our companies:
 
 <!-- ```4D
 Class extends DataClass
@@ -345,7 +344,7 @@ $empData:= $1
 $newCompany:=ds.Companies.query("name= :1"; $empData.companyName).first() // Get the company by querying the company name  
 $empHired:=ds.Employees.new() // Create new employee  
 $empHired.fromObject($empData) // Input employee data from parameter
-$empHired.employer:=$newCompany // Set the relation 'employer' to the queried compnay
+$empHired.employer:=$newCompany // Set the relation 'employer' to the queried company
 $empHired.save()
 
 $0:= $empHired
@@ -366,9 +365,224 @@ $hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds new employee to datab
 
 This class is used to implement functions related to an [entity](https://doc.4d.com/4Dv18R4/4D/18-R4/Entities.300-5005669.en.html).
 
+<!-- We want to get all employees who make more money than the current employee
+
+```4D
+Class extends Entity
+
+Function getHigherPaidEmps
+
+C_OBJECT($0;$higherPayEmps)
+
+$higherPayEmps:= This.getDataClass().query("salary > :1"; This.salary).orderBy("salary desc")
+
+$0:= $higherPayEmps
+```
+We can call the function:
+
+```4D
+C_OBJECT($emp;$higherPayEmps)
+
+$emp:= ds.Employees.query("firstName = 'John' and lastName = 'Smith'").first()
+
+$higherPayEmps:= $emp.getHigherPaidEmps() // Returns all employees who have a salary higher than John Smith
+``` -->
+
+We want to get all the employees that work in the same company as the current employee using the _EmployeeEntity_ Class:
+
+```4D
+Class extends Entity
+
+Function worksInSameCompany
+
+C_OBJECT($0;$workTogether;$company)
+
+$company:=This.Companies.name
+
+$$workTogether:= $company.employees.minus(This)
+
+$0:= $workTogether
+```
+We can call the function:
+
+```4D
+C_OBJECT($emp;$workTogether)
+
+$emp:= ds.Employees.query("firstName = 'John' and lastName = 'Smith'").first()
+
+$$workTogether:= $emp.worksInSameCompany() // Returns all employees who work in the same company as John Smith
+```
+
+## The Entity Selection Class
+
+This class is used to implement functions related to an [entity selection](https://doc.4d.com/4Dv18R4/4D/18-R4/Entity-selections.300-5005668.en.html).
+
+We want to give everyone a raise using the _EmployeeSelection_ Class
+
+```4D
+Class extends EntitySelection
+
+Function giveRaise
+
+C_OBJECT($0;$status;$employee)
+C_REAL($1; $raise)
+
+$raise:= $1
+
+ For each ($employee;This) Until (Not($status.success))
+   $employee.salary:= $employee.salary * $raise
+   $status:=$employee.save()
+ End for each
+ 
+$0:=$status
+```
+We can call the function:
+
+```4D
+C_OBJECT($result)
+$result:=ds.Employees.all().setFinalExam(1.05)
+```
+
+# REST Server with ORDA Classes
+
+This database is exposed as a [REST server](https://blog.4d.com/multiple-4d-data-sources-interested/) on localhost (port 8044). All of the defined functions in its classes can be called using REST requests in a [POST](https://blog.4d.com/test-the-powerful-4d-rest-server-with-postman/) operation.
 
 
+## The DataStore Class
 
+The datastore object is retrieved using the **/rest/$catalog** prefix.
+
+We can call our [getCompnayStats()](##The-DataStore-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/$catalog/getCompnayStats**
+
+The response from the server would look like:
+
+```json
+{
+ "result": [
+    {
+    "name": "Amazon",
+    "address": "123 Example St",
+    "numEmployees": 967
+    },
+    {
+    "name": "Microsoft",
+    "address": "567 Seattle St",
+    "numEmployees": 786
+    },
+    {
+    "name": "4D SAS",
+    "address": "555 Another Ave",
+    "numEmployees": 98
+    }
+  ]
+}
+```
+
+## The DataClass Class
+A dataclass object is accessed via the **/rest/dataClassName** prefix
+
+We can call our [hireNewEmployee()](##The-DataClass-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Schools/hireNewEmployee**
+
+A parameters must be passed as a collection, in the body of the request:
+
+```json
+[
+ {
+ "firstName": "Mary",
+ "lastName": "Smith",
+ "email": "marysmith@amazon.com",
+ "salary": 70000,
+ "companyName": "Amazon"
+ }
+]
+```
+The response from the server looks like this:
+
+```json
+{
+  "__entityModel": "Employees",
+  "__DATACLASS": "Employees",
+  "__KEY": "9",
+  "__TIMESTAMP": "2020-08-01T13:08:13.542Z",
+  "__STAMP": 1,
+  "ID": 9,
+  "firstname": "Mary",
+  "lastname": "Smith",
+  "email": "marysmith@amazon.com",
+  "salary": 70000,
+  "employer": {
+    "__deferred": {
+      "uri": "/rest/Companies(4)",
+      "__KEY": "4"
+     }
+   }
+}
+```
+
+## The Entity Class
+An entity object is accessed via the **/rest/dataClassName(key)** prefix, where key is the primary key of the entity.
+
+We can call our [worksInSameCompany()](##The-Entity-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Schools/worksInSameCompany**
+
+This example is for an entity with primary key = 7. It’s accessed via the http://127.0.0.1:8044/rest/Employees(7)/worksInSameCompany/?$attributes=firstName,lastName URL.
+
+We apply the worksInSameCompany() function on this entity and filter the returned attributes to get only firstname and lastname (/?$attributes=firstName,lastName).
+
+Here’s the response from the server:
+
+```json
+{
+ "__DATACLASS": "Employees",
+ "__entityModel": "Employees",
+ "__GlobalStamp": 0,
+ "__COUNT": 3,
+ "__FIRST": 0,
+ "__ENTITIES": [
+    {
+     "__KEY": "5",
+     "__TIMESTAMP": "2020-06-16T13:59:51.095Z",
+     "__STAMP": 1,
+     "firstName": "Ricky",
+     "lastName": "Coyle"
+    },
+    {
+     "__KEY": "6",
+     "__TIMESTAMP": "2020-06-16T13:59:51.095Z",
+     "__STAMP": 1,
+     "firstName": "Alonzo",
+     "lastName": "Zapata"
+    }
+  ],
+ "__SENT": 3
+}
+```
+
+## The Entity Selection Class
+An entity selection object can be accessed via the filter syntax. For example, /?$filter="firstName='John'" to get all of the employees whos value is 'John'for the firstName attribute.
+
+An entity selection can be accessed through other ways, too so be sure to check the [documentation](https://developer.4d.com/docs/en/REST/gettingStarted.html).
+
+We can call our [giveRaise()](##The-Entity-Selection-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Employees/giveRaise/?$filter="salary<:1"&$params='[70000]'**
+
+We call the _giveRasie()_ fucntion to all employees who have a salary less than $70,000.
+
+A parameters must be passed as a collection, in the body of the request:
+
+```json
+[
+1.05
+]
+```
+
+Here’s the response from the server (all of the concerned employees have been properly updated):
+
+```json
+{
+ "result": {
+   "success": true
+   }
+}
+```
 
 # Related 4D Documentation Links
 * [4D ORDA Docs](https://developer.4d.com/docs/en/ORDA/ordaClasses.htm)
