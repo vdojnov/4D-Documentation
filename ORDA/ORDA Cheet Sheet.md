@@ -258,7 +258,7 @@ This class is used to implement functions related to the [datastore](https://doc
 
 * We only have one of these classes called "DataStore" in our Classes folder
 
-```4D
+<!-- ```4D
 Class extends DataStoreImplementation
 
 Function getDescription
@@ -271,6 +271,35 @@ When we call the DataStore function:
 ```4D
 C_TEXT($description)
 $description:=ds.getDescription() // "There are 500 employees working in 80 companies around the world!"
+``` -->
+
+```4D
+Class extends DataStoreImplementation
+
+Function getCompanyStats
+
+C_COLLECTION($0;$result)
+C_OBJECT($obj;$company)
+
+$result:=New collection()
+
+
+For each ($company;This.Companies.all())
+ $obj:= New Object()
+ $obj.name:=$company.name
+ $obj.address:=$company.address
+ $obj.numEmployees:=$company.employees.length
+ $result.push($obj)
+End for each
+
+$0:=$result
+```
+
+When we call the DataStore function:
+
+```4D
+C_COLLECTION($companyStats)
+$companyStats:=ds.getCompanyStats // Returns a collection of objects with information about each company
 ```
 
 
@@ -329,7 +358,7 @@ C_OBJECT($emp)
 
 $emp:= New Object("firstName";"Mary"; "lastName"; "Smith"; "email"; "mary@example.com"; "salary" ; 70000 ;"companyName"; "Amazon")
 
-$hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds new employee to table and returns that employee record
+$hiredEmployee:=ds.Employees.hireNewEmployee($emp) // Adds new employee to databse and returns that employee record
 ```
 
 
