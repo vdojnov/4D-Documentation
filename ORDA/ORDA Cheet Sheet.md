@@ -452,7 +452,7 @@ This database is exposed as a [REST server](https://blog.4d.com/multiple-4d-data
 
 The datastore object is retrieved using the **/rest/$catalog** prefix.
 
-We can call our [getCompnayStats()](##The-DataStore-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/$catalog/getCompnayStats**
+We can call our [getCompnayStats()](##The-DataStore-Class) function with the URL: **http://127.0.0.1:8044/rest/$catalog/getCompnayStats**
 
 The response from the server would look like:
 
@@ -562,7 +562,7 @@ An entity selection can be accessed through other ways, too so be sure to check 
 
 We can call our [giveRaise()](##The-Entity-Selection-Class) function with the URL: **http://127.0.0.1:8044/rest/Employees/giveRaise/?$filter="salary<:1"&$params='[70000]'**
 
-We call the _giveRasie()_ fucntion to all employees who have a salary of less than $70,000.
+We call the _giveRasie()_ function to all employees who have a salary of less than $70,000.
 
 Parameters must be passed as a collection, in the body of the request:
 
