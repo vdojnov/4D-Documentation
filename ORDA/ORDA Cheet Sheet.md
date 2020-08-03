@@ -587,3 +587,4 @@ Here’s the response from the server (all of the concerned employees have been 
 * [ORDA Intro Video](https://youtu.be/L_9YJopIg3A)
 * [4D ORDA MasterClass Video](https://youtu.be/Nk8TUzeTF-k)
 * [ORDA Entity Selection](https://doc.4d.com/4Dv18R4/4D/18-R4/ORDA-EntitySelection.201-4981856.en.html)
+* [4D REST Server Docs](https://developer.4d.com/docs/en/REST/gettingStarted.html)
