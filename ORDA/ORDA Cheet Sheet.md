@@ -522,9 +522,7 @@ The response from the server looks like this:
 ## The Entity Class
 An entity object is accessed via the **/rest/dataClassName(key)** prefix, where key is the primary key of the entity.
 
-We can call our [worksInSameCompany()](##The-Entity-Class) fucntion with the URL: **http://127.0.0.1:8044/rest/Schools/worksInSameCompany**
-
-This example is for an entity with primary key = 7. It’s accessed via the http://127.0.0.1:8044/rest/Employees(7)/worksInSameCompany/?$attributes=firstName,lastName URL.
+We can call our [worksInSameCompany()](##The-Entity-Class). This example is for an entity with primary key = 7. It’s accessed via the http://127.0.0.1:8044/rest/Employees(7)/worksInSameCompany/?$attributes=firstName,lastName URL.
 
 We apply the worksInSameCompany() function on this entity and filter the returned attributes to get only firstname and lastname (/?$attributes=firstName,lastName).
 
