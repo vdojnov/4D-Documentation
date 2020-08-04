@@ -440,7 +440,7 @@ We can call the function:
 
 ```4D
 C_OBJECT($result)
-$result:=ds.Employees.all().setFinalExam(1.05)
+$result:=ds.Employees.all().giveRaise(1.05)
 ```
 
 # REST Server with ORDA Classes
@@ -481,7 +481,7 @@ The response from the server would look like:
 ## The DataClass Class
 A dataclass object is accessed via the **/rest/dataClassName** prefix
 
-We can call our [hireNewEmployee()](##The-DataClass-Class) function with the URL: **http://127.0.0.1:8044/rest/Schools/hireNewEmployee**
+We can call our [hireNewEmployee()](##The-DataClass-Class) function with the URL: **http://127.0.0.1:8044/rest/Employees/hireNewEmployee**
 
 Parameters must be passed as a collection, in the body of the request:
 
