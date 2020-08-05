@@ -397,10 +397,8 @@ Function worksInSameCompany
 
 C_OBJECT($0;$workTogether;$company)
 
-$company:=This.Companies.name
-
-$$workTogether:= $company.employees.minus(This)
-
+$company:=This.employer
+$workTogether:= $company.employees.minus(This)
 $0:= $workTogether
 ```
 We can call the function:
