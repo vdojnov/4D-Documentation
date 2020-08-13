@@ -216,20 +216,21 @@ Function print
 	
 Function toString
 	var $1 : Real
-	var $0 : Text
-	$0:=String($1)
+	var $0 : text
+	$0:=string($1)
 	
 	
 Function int
 	var $1 : Real
 	var $0 : Integer
-	$0:=Int($1)
+	$0:=int($1)
 	
 	
 	
 	//-----------------------------------
 	// CONSTANTS
 Function pi
+	var $0 : real
 	$0:=Pi
 	
 Function toRadians
@@ -242,13 +243,22 @@ Function toDegrees
 	var $0,$1,$radian,$degree : Real
 	$radian:=$1
 	$degree:=$radian/Degree
-	$0:=$degree
+	$0:=$degree+
 	
-
-
-
-
-
+Function e
+	var $0 : real
+	$0:= e number 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	// TODO
@@ -257,6 +267,25 @@ Function toDegrees
 	//-copysign
 	//-sign
 	//-allow sum and average to take collections and numbers
+	// cbrt() cube root
+	  //gcd() greatest common divisor
+	  //perm() python permutation
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
