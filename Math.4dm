@@ -1,3 +1,8 @@
+Class constructor
+	This.success:="Success"
+	This.invalidInput:="Error: Invalid Input"
+	This.divideByZero:="Error: Cannot divide by zero"
+	
 Function sum
 	C_COLLECTION($1;$coll)
 	C_REAL($0;$sum)
@@ -9,7 +14,6 @@ Function sum
 		$sum:=$sum+$coll[$i]
 		$i:=$i+1
 	End while 
-	
 	$0:=$sum
 	
 Function average
@@ -20,19 +24,6 @@ Function average
 	$length:=$coll.length
 	
 	$0:=This.sum($coll)/$length
-	
-Function max
-	C_REAL($0;$1;$2;$result;$num1;$num2)
-	$num1:=$1
-	$num2:=$2
-	
-	If ($num1>=$num2)
-		$result:=$num1
-	Else 
-		$result:=$num2
-	End if 
-	
-	$0:=$result
 	
 	
 Function min
@@ -49,15 +40,23 @@ Function min
 	$0:=$result
 	
 Function sqrt
-	C_REAL($1)
+	C_REAL($1;$0)
 	$0:=Square root($1)
+	
+Function cbrt
+	var $0,$1,$num,$result : Real
+	$num:=$1
+	
+	$result:=$num^(1/3)
+	$0:=$result
+	
 	
 Function hypot
 	var $1,$2,$0 : Real
 	$0:=Square root(($1^2)+($2^2))
 	
 Function pow
-	C_REAL($1;$2)
+	C_REAL($1;$2;$0)
 	$0:=($1)^($2)
 	
 Function round
@@ -194,20 +193,24 @@ Function random
 	
 Function factorial
 	C_LONGINT($0;$1;$result;$num)
+	var $statusMessage,$function : Text
 	$num:=$1
 	$result:=0
 	
 	Case of 
 		: ($num<0)
-			
+			$statusMessage:=This.invalidInput
+			$result:=-1
 		Else 
-			If ($num<=1)
-				$result:=1
-			Else 
-				$result:=$num*This.factorial($num-1)
-			End if 
+			$result:=1
+			While ($num>1)
+				$result:=$result*$num
+				$num:=$num-1
+			End while 
+			$statusMessage:=This.success
 	End case 
-	
+	$function:=This.functionToText("factorial";$1)
+	This.consoleLog($function;$statusMessage;$result)
 	$0:=$result
 	
 Function print
@@ -216,21 +219,21 @@ Function print
 	
 Function toString
 	var $1 : Real
-	var $0 : text
-	$0:=string($1)
+	var $0 : Text
+	$0:=String($1)
 	
 	
 Function int
 	var $1 : Real
 	var $0 : Integer
-	$0:=int($1)
+	$0:=Int($1)
 	
 	
 	
 	//-----------------------------------
 	// CONSTANTS
 Function pi
-	var $0 : real
+	var $0 : Real
 	$0:=Pi
 	
 Function toRadians
@@ -243,19 +246,89 @@ Function toDegrees
 	var $0,$1,$radian,$degree : Real
 	$radian:=$1
 	$degree:=$radian/Degree
-	$0:=$degree+
+	$0:=$degree
 	
 Function e
-	var $0 : real
-	$0:= e number 
+	var $0 : Real
+	$0:=e number
 	
 	
+Function sign
+	var $1,$0,$num,$sign : Real
+	$num:=$1
+	
+	Case of 
+		: ($num=0)
+			$sign:=0
+		: ($num>0)
+			$sign:=1
+		: ($num<0)
+			$sign:=-1
+	End case 
+	
+	$0:=$sign
+	
+Function max
+	C_REAL($0;$1;$2;$result;$num1;$num2)
+	var $statusMessage,$function : Text
+	$function:=This.functionToText("max";$1;$2)
+	$num1:=$1
+	$num2:=$2
+	
+	If ($num1>=$num2)
+		$result:=$num1
+		$statusMessage:=This.success
+	Else 
+		$result:=$num2
+		$statusMessage:=This.success
+	End if 
+	This.consoleLog($function;$statusMessage;$result)
+	$0:=$result
 	
 	
+	// HELPER FUNCTIONS
+Function consoleLog
+	//consoleLog( function with parameters, Result, Status Message)
 	
+	var $1,$2,$textResult,$function,$statusMessage : Text
+	var $3 : Real
+	var $logMessage : Object
 	
+	$function:=$1
+	$textResult:=String($3)
+	$statusMessage:=$2
 	
+	$logMessage:=ds.MathLog.new()
 	
+	$logMessage.date:=Current date
+	$logMessage.time:=Current time
+	$logMessage.function:=$function
+	$logMessage.result:=$textResult
+	$logMessage.message:=$statusMessage
+	
+	$logMessage.save()
+	
+Function functionToText
+	//functionToText($funcName; $param1; $param2; $param3)
+	
+	var $1,$0,$result,$funcName,$param1,$param2,$param3 : Text
+	var $2,$3,$4 : Real
+	$funcName:=$1
+	$param1:=String($2)
+	$param2:=String($3)
+	$param3:=String($4)
+	
+	Case of 
+		: (Count parameters=1)
+			$result:=$funcName+"()"
+		: (Count parameters=2)
+			$result:=$funcName+"("+$param1+")"
+		: (Count parameters=3)
+			$result:=$funcName+"("+$param1+";"+$param2+")"
+		: (Count parameters=4)
+			$result:=$funcName+"("+$param1+";"+$param2+";"+$param3+")"
+	End case 
+	$0:=$result
 	
 	
 	
@@ -265,43 +338,9 @@ Function e
 	// --------
 	//-log10
 	//-copysign
-	//-sign
 	//-allow sum and average to take collections and numbers
-	// cbrt() cube root
-	  //gcd() greatest common divisor
-	  //perm() python permutation
+	//gcd() greatest common divisor
+	//perm() python permutation
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// ------------------------------------
-	//NEEDS WORK
-	
-	// Use the Dec() function to solve
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	// ASSERT Library https://www.tutorialspoint.com/junit/junit_using_assertion.htm
