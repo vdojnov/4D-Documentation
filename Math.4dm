@@ -176,7 +176,7 @@ Function random
 	
 	Case of 
 		: (Count parameters=0)
-			$random:=(Random%(10000))/10000
+			$random:=(Random%(32767))/32767
 			
 		: (Count parameters=1)
 			$vStart:=0
