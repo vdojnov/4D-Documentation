@@ -15,7 +15,7 @@ We can now use the $math Variable to perform math functions and access math cons
 ## Constants
 
 ### PI
-The math constant pi (_π_)
+The mathematical constant pi (_π_), approximately `3.14159`.
 
 ```4D
 var $pi : Real
@@ -23,7 +23,8 @@ $pi:=$math.PI
 ```
 
 ### E
-The math constant e (_e_) 
+
+Euler's constant (_e_), approximately `2.718`.
 
 ```4D
 var $e : Real
@@ -32,6 +33,13 @@ $e:=$math.E
 
 ## Functions
 
-    
+### abs()
+Returns the absolute value of x (|_x_|)
+
+`Math.abs(`_x_`)`
+
+
+
+
 
 
