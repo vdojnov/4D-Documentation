@@ -104,10 +104,10 @@ $result:=$math.copySign(4;-3)
 **Parameters:** Takes one parameters of type Real 
 
 ```4D
-var $result : Real
+var $result, $pi : Real
 $pi:=$math.PI
 $result:=$math.cos($pi)
-    //Returns 1
+    //Returns -1
 ```
 
 
@@ -165,6 +165,16 @@ $result:=$math.hypot(3;4)
     //Returns 5
 ```
 
+## ```int(x)```
+**Description:** Returns the integer value of x
+
+**Parameters:** Takes one parameters of type Real
+
+```4D
+var $result : Real
+$result:=$math.int(45.8)
+    // Returns 45
+```
 
 ## ```log(x)```
 
@@ -173,7 +183,7 @@ $result:=$math.hypot(3;4)
 **Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
+var $result, $e : Real
 $e:=$math.E
 $result:=$math.log($e)
     // Returns 1
@@ -218,6 +228,16 @@ $result:=$math.pow(3;2)
     // Returns 9
 ```
 
+## ```pow(Real x, Real y)```
+
+**Description:** Pops up an Alert with the value of x
+
+**Parameters:** Takes one parameters of type Real
+
+```4D
+$math.print(5)
+    // Acts as an alert for values of type Real
+```
 
 ## ```random()```
 #### Takes zero, one, or two parameters
@@ -255,7 +275,7 @@ $result:=$math.pow(3;2)
         // Return 3 for example
     ```
 ## ```round()```
-#### Takes one, or two parameters
+#### Takes one or two parameters
 
 1.  ### ```round(Real x)```
     **Description:** Returns x rounded to the nearest Integer
@@ -279,16 +299,6 @@ $result:=$math.pow(3;2)
         // Return 2.58
     ```
 
-**Description:** Returns
-
-**Parameters:** 
-
-```4D
-var $result : Real
-$result:=$math.round(-4)
-```
-
-
 ## ```sign(x)```
 
 **Description:** Returns the sign of the x, indicating whether x is positive (+1), negative (-1), or zero(0).
@@ -298,8 +308,14 @@ $result:=$math.round(-4)
 ```4D
 var $result : Real
 $result:=$math.sign(-4)
-```
+    Returns -1
 
+$result:=$math.sign(4)
+    Returns 1
+
+$result:=$math.sign(0)
+    Returns 0
+```
 
 ## ```sin(Real x)```
 
@@ -308,8 +324,10 @@ $result:=$math.sign(-4)
 **Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
-$result:=$math.sin(-4)
+var $result, $pi: Real
+$pi:=$math.PI
+$result:=$math.sin($pi)
+    // Returns 0
 ```
 
 
@@ -321,19 +339,21 @@ $result:=$math.sin(-4)
 
 ```4D
 var $result : Real
-$result:=$math.sqrt(-4)
+$result:=$math.sqrt(9)
+    // Returns 3    
 ```
 
 
-## ```sum()```
+## ```sum(Real x, Real y, Real z,..., Real n)```
 
-**Description:** 
+**Description:** Returns the sum of inputted values
 
-**Parameters:** 
+**Parameters:** Take at least two or more parameters of type Real
 
 ```4D
 var $result : Real
-$result:=$math.sum(-4)
+$result:=$math.sum(1;2;3;4;5)
+    // Returns 15
 ```
 
 
@@ -344,8 +364,10 @@ $result:=$math.sum(-4)
 **Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
-$result:=$math.tan(-4)
+var $result, $pi : Real
+$pi:=$math.PI
+$result:=$math.tan($pi)
+    // Returns -1
 ```
 
 
@@ -356,8 +378,10 @@ $result:=$math.tan(-4)
 **Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
-$result:=$math.toDegrees(-4)
+var $result, $pi : Real
+$pi:=$math.PI
+$result:=$math.toDegrees($pi)
+    // Returns 180
 ```
 
 
@@ -368,23 +392,20 @@ $result:=$math.toDegrees(-4)
 **Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
-$result:=$math.toRadians(-4)
+var $result, $pi : Real
+$pi:=$math.PI
+$result:=$math.toRadians(180)
+    // Return 2.14159... <--- (π)
 ```
 
+## ```toString(Real x)```
 
+**Description:** Converts a value of type Real to type Text
 
-
-
-
-
-
-**Description:** 
-
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
-var $result : Real
-$result:=$math.abs(-4)
+var $result: Real
+$result:=$math.toString(180)
+    // Return "180"
 ```
-
