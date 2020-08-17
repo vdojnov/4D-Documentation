@@ -45,7 +45,7 @@ We can now use the $math Variable to perform math functions and access math cons
 
 ## Constants <a name="constants"></a>
 
-### PI <a name="pi"></a>
+### PI - *π* <a name="pi"></a>
 The mathematical constant pi (_π_), approximately `3.14159`.
 
 ```4D
@@ -53,7 +53,7 @@ var $pi : Real
 $pi:=$math.PI
 ```
 
-### Euler's constant *e* <a name="e"></a>
+### Euler's constant - *e* <a name="e"></a>
 
 Euler's constant (_e_), approximately `2.718`.
 
@@ -196,7 +196,7 @@ $result:=$math.hypot(3;4)
     //Returns 5
 ```
 
-## ```int(x)``` <a name="int"></a>
+## ```int(Real x)``` <a name="int"></a>
 **Description:** Returns the integer value of x
 
 **Parameters:** Takes one parameters of type Real
@@ -207,7 +207,7 @@ $result:=$math.int(45.8)
     // Returns 45
 ```
 
-## ```log(x)``` <a name="log"></a>
+## ```log(Real x)``` <a name="log"></a>
 
 **Description:** Returns the logarithm of x to the base *e*
 
@@ -330,7 +330,7 @@ $math.print(5)
         // Return 2.58
     ```
 
-## ```sign(x)``` <a name="sign"></a>
+## ```sign(Real x)``` <a name="sign"></a>
 
 **Description:** Returns the sign of the x, indicating whether x is positive (+1), negative (-1), or zero(0).
 
