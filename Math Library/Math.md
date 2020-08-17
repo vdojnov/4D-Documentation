@@ -33,7 +33,7 @@ $e:=$math.E
 
 ## Functions
 
-### ```abs(x)```
+### ```abs(Real x)```
 
 **Description:** Returns the absolute value of x (|_x_|)
 
@@ -45,9 +45,9 @@ $result:=$math.abs(-4)
     //Returns 4
 ```
 
-### ```average()```
+### ```average(Real x, Real y, Real z,..., Real n)```
 
-**Description:** Returns the average of the value of parameters
+**Description:** Returns the average of inputted values
 
 **Parameters:** Take at least two or more parameters of type Real
 
@@ -57,9 +57,9 @@ $result:=$math.average(1;2;3;4;5)
     //Returns 3
 ```
 
-## ```cbrt()```
+## ```cbrt(Real x)```
 
-**Description:** Returns the cube root of of a number
+**Description:** Returns the cube root of x
 
 **Parameters:** Takes one parameter of type Real
 
@@ -69,9 +69,9 @@ $result:=$math.cbrt(16)
 ```
 
 
-## ceil()
+## ```ceil(Real x)```
 
-**Description:** Returns the smallest integer greater than or equal to the input
+**Description:** Returns the smallest integer greater than or equal x
 
 **Parameters:** Takes one parameter of type Real
 
@@ -82,11 +82,11 @@ $result:=$math.ceil(-4)
 ```
 
 
-## copySign()
+## ```copySign(Real x, Real y)```
 
-**Description:** 
+**Description:** Returns x with the sign of y
 
-**Parameters:** 
+**Parameters:** Takes two parameters of type Real
 
 ```4D
 var $result : Real
@@ -94,11 +94,11 @@ $result:=$math.copySign(4;-3)
 ```
 
 
-## cos()
+## ```cos(Real x)```
 
-**Description:** 
+**Description:** Returns the cosine of x, where x is in Radians
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real 
 
 ```4D
 var $result : Real
@@ -106,11 +106,11 @@ $result:=$math.cos(-4)
 ```
 
 
-## exp()
+## ```exp(Real x)```
 
-**Description:** 
+**Description:** Returns Euler's number e raised to the power of x.
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -118,11 +118,11 @@ $result:=$math.exp(-4)
 ```
 
 
-## factorial()
+## ```factorial(Real x)```
 
-**Description:** 
+**Description:** Returns the factorial of x
 
-**Parameters:** 
+**Parameters:** Takes one NON-NEGATIVE parameters of type Real
 
 ```4D
 var $result : Real
@@ -130,11 +130,11 @@ $result:=$math.factorial(5)
 ```
 
 
-## floor()
+## ```floor(Real x)```
 
-**Description:** 
+**Description:** Returns the largest integer less than or equal to x
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -142,11 +142,11 @@ $result:=$math.floor(-4)
 ```
 
 
-## hypot()
+## ```hypot(Real x, Real y)```
 
-**Description:** 
+**Description:** Find the hypotenuse of a right angle triangle (x^2 + y^2)
 
-**Parameters:** 
+**Parameters:** Takes two parameters of type Real, x and y representing non-hypotenuse sides of the triangle
 
 ```4D
 var $result : Real
@@ -154,11 +154,11 @@ $result:=$math.hypot(-4)
 ```
 
 
-## log()
+## ```log(x)```
 
-**Description:** 
+**Description:** Returns the logarithm of x to the base *e*
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -166,11 +166,11 @@ $result:=$math.log(-4)
 ```
 
 
-## max()
+## ```max(Real x, Real y, Real z,..., Real n)```
 
-**Description:** 
+**Description:** Returns the largest number of inputted values
 
-**Parameters:** 
+**Parameters:** Take at least two or more parameters of type Real
 
 ```4D
 var $result : Real
@@ -178,11 +178,11 @@ $result:=$math.max(-4)
 ```
 
 
-## min()
+## ```min(Real x, Real y, Real z,..., Real n)```
 
-**Description:** 
+**Description:** Returns the smallest number of inputted values
 
-**Parameters:** 
+**Parameters:** Take at least two or more parameters of type Real
 
 ```4D
 var $result : Real
@@ -190,11 +190,11 @@ $result:=$math.min(-4)
 ```
 
 
-## pow()
+## ```pow(x, y)```
 
-**Description:** 
+**Description:** Returns x raised to the power y
 
-**Parameters:** 
+**Parameters:** Takes two parameters of type Real
 
 ```4D
 var $result : Real
@@ -202,7 +202,11 @@ $result:=$math.pow(-4)
 ```
 
 
-## random()
+## ```random()```
+Takes zero, one, or two parameters
+
+### ```random()```
+
 
 **Description:** 
 
@@ -214,9 +218,9 @@ $result:=$math.random(-4)
 ```
 
 
-## round()
+## ```round()```
 
-**Description:** 
+**Description:** Returns
 
 **Parameters:** 
 
@@ -226,7 +230,7 @@ $result:=$math.round(-4)
 ```
 
 
-## sign()
+## ```sign()```
 
 **Description:** 
 
@@ -238,7 +242,7 @@ $result:=$math.sign(-4)
 ```
 
 
-## sin()
+## ```sin()```
 
 **Description:** 
 
@@ -250,7 +254,7 @@ $result:=$math.sin(-4)
 ```
 
 
-## sqrt()
+## ```sqrt()```
 
 **Description:** 
 
@@ -262,7 +266,7 @@ $result:=$math.sqrt(-4)
 ```
 
 
-## sum()
+## ```sum()```
 
 **Description:** 
 
@@ -274,7 +278,7 @@ $result:=$math.sum(-4)
 ```
 
 
-## tan()
+## ```tan()```
 
 **Description:** 
 
@@ -286,7 +290,7 @@ $result:=$math.tan(-4)
 ```
 
 
-## toDegrees()
+## ```toDegrees()```
 
 **Description:** 
 
@@ -298,7 +302,7 @@ $result:=$math.toDegrees(-4)
 ```
 
 
-## toRadians()
+## ```toRadians()```
 
 **Description:** 
 
