@@ -1,10 +1,38 @@
 <!-- Type your summary here -->
 # Math Library Documentation
+1. [Instantiation](#Instantiation)
+2. [Constants](#constants)
+    1. [Pi](#pi)
+    1. [Euler's constant *e*](#e)
+3. [Functions](#functions)
+    1. [abs()](#abs)
+    1. [average()](#average)
+    1. [cbrt()](#cbrt)
+    1. [ceil()](#ceil)
+    1. [copySign()](#copySign)
+    1. [cos](#cos)
+    1. [exp](#exp)
+    1. [factorial()](#factorial)
+    1. [floor()](#floor)
+    1. [hypot()](#hypot)
+    1. [int()](#int)
+    1. [log()](#log)
+    1. [max()](#max)
+    1. [min()](#min)
+    1. [pow()](#pow)
+    1. [print()](#print)
+    1. [random()](#random)
+    1. [round()](#round)
+    1. [sign()](#sign)
+    1. [sin()](#sin)
+    1. [sqrt()](#sqrt)
+    1. [sum()](#sum)
+    1. [tan()](#tan)
+    1. [toDegrees()](#toDegrees)
+    1. [toRadians()](#toRadians)
+    1. [toString()](#toString)
 
-[Constants](#constants)
-[Functions](#functions)
-
-## Instantiation 
+## Instantiation a name="Instantiation"></a>
 
 To instantiate a new Math Class to be able to use the functions you need to declare a new variable, and create the new object.
 
@@ -17,7 +45,7 @@ We can now use the $math Variable to perform math functions and access math cons
 
 ## Constants <a name="constants"></a>
 
-### PI
+### PI <a name="pi"></a>
 The mathematical constant pi (_π_), approximately `3.14159`.
 
 ```4D
@@ -25,7 +53,7 @@ var $pi : Real
 $pi:=$math.PI
 ```
 
-### E
+### Euler's constant *e* <a name="e"></a>
 
 Euler's constant (_e_), approximately `2.718`.
 
@@ -36,7 +64,7 @@ $e:=$math.E
 
 ## Functions <a name="functions"></a>
 
-### ```abs(Real x)```
+### ```abs(Real x)``` <a name="abs"></a>
 
 **Description:** Returns the absolute value of x (|_x_|)
 
@@ -48,7 +76,7 @@ $result:=$math.abs(-4)
     //Returns 4
 ```
 
-### ```average(Real x, Real y, Real z,..., Real n)```
+### ```average(Real x, Real y, Real z,..., Real n)``` <a name="average"></a>
 
 **Description:** Returns the average of inputted values
 
@@ -60,7 +88,7 @@ $result:=$math.average(1;2;3;4;5)
     //Returns 3
 ```
 
-## ```cbrt(Real x)```
+## ```cbrt(Real x)``` <a name="cbrt"></a>
 
 **Description:** Returns the cube root of x
 
@@ -73,7 +101,7 @@ $result:=$math.cbrt(16)
 ```
 
 
-## ```ceil(Real x)```
+## ```ceil(Real x)``` <a name="ceil"></a>
 
 **Description:** Returns the smallest integer greater than or equal x
 
@@ -87,7 +115,7 @@ $result:=$math.ceil(4.02)
 ```
 
 
-## ```copySign(Real x, Real y)```
+## ```copySign(Real x, Real y)``` <a name="copySign"></a>
 
 **Description:** Returns x with the sign of y
 
@@ -100,7 +128,7 @@ $result:=$math.copySign(4;-3)
 ```
 
 
-## ```cos(Real x)```
+## ```cos(Real x)``` <a name="cos"></a>
 
 **Description:** Returns the cosine of x, where x is in Radians
 
@@ -114,7 +142,7 @@ $result:=$math.cos($pi)
 ```
 
 
-## ```exp(Real x)```
+## ```exp(Real x)``` <a name="exp"></a>
 
 **Description:** Returns Euler's number e raised to the power of x.
 
@@ -127,7 +155,7 @@ $result:=$math.exp(3)
 ```
 
 
-## ```factorial(Real x)```
+## ```factorial(Real x)``` <a name="factorial"></a>
 
 **Description:** Returns the factorial of x
 
@@ -140,7 +168,7 @@ $result:=$math.factorial(5)
 ```
 
 
-## ```floor(Real x)```
+## ```floor(Real x)``` <a name="floor"></a>
 
 **Description:** Returns the largest integer less than or equal to x
 
@@ -156,7 +184,7 @@ $result:=$math.floor(-4.05)
 ```
 
 
-## ```hypot(Real x, Real y)```
+## ```hypot(Real x, Real y)``` <a name="hypot"></a>
 
 **Description:** Find the hypotenuse of a right angle triangle (x^2 + y^2)
 
@@ -168,7 +196,7 @@ $result:=$math.hypot(3;4)
     //Returns 5
 ```
 
-## ```int(x)```
+## ```int(x)``` <a name="int"></a>
 **Description:** Returns the integer value of x
 
 **Parameters:** Takes one parameters of type Real
@@ -179,7 +207,7 @@ $result:=$math.int(45.8)
     // Returns 45
 ```
 
-## ```log(x)```
+## ```log(x)``` <a name="log"></a>
 
 **Description:** Returns the logarithm of x to the base *e*
 
@@ -193,7 +221,7 @@ $result:=$math.log($e)
 ```
 
 
-## ```max(Real x, Real y, Real z,..., Real n)```
+## ```max(Real x, Real y, Real z,..., Real n)``` <a name="max"></a>
 
 **Description:** Returns the largest number of inputted values
 
@@ -206,7 +234,7 @@ $result:=$math.max(4;5;2;7;3)
 ```
 
 
-## ```min(Real x, Real y, Real z,..., Real n)```
+## ```min(Real x, Real y, Real z,..., Real n)``` <a name="min"></a>
 
 **Description:** Returns the smallest number of inputted values
 
@@ -219,7 +247,7 @@ $result:=$math.min(4;5;2;7;3)
 ```
 
 
-## ```pow(Real x, Real y)```
+## ```pow(Real x, Real y)``` <a name="pow"></a>
 
 **Description:** Returns x raised to the power y
 
@@ -231,7 +259,7 @@ $result:=$math.pow(3;2)
     // Returns 9
 ```
 
-## ```pow(Real x, Real y)```
+## ```print(Real x, Real y)``` <a name="print"></a>
 
 **Description:** Pops up an Alert with the value of x
 
@@ -242,7 +270,7 @@ $math.print(5)
     // Acts as an alert for values of type Real
 ```
 
-## ```random()```
+## ```random()``` <a name="random"></a>
 #### Takes zero, one, or two parameters
 
 
@@ -277,7 +305,7 @@ $math.print(5)
     $result:=$math.random(2;5)
         // Return 3 for example
     ```
-## ```round()```
+## ```round()``` <a name="round"></a>
 #### Takes one or two parameters
 
 1.  ### ```round(Real x)```
@@ -302,7 +330,7 @@ $math.print(5)
         // Return 2.58
     ```
 
-## ```sign(x)```
+## ```sign(x)``` <a name="sign"></a>
 
 **Description:** Returns the sign of the x, indicating whether x is positive (+1), negative (-1), or zero(0).
 
@@ -320,7 +348,7 @@ $result:=$math.sign(0)
     Returns 0
 ```
 
-## ```sin(Real x)```
+## ```sin(Real x)``` <a name="sin"></a>
 
 **Description:**  Returns the sine of x, where x is in Radians
 
@@ -334,7 +362,7 @@ $result:=$math.sin($pi)
 ```
 
 
-## ```sqrt(Real x)```
+## ```sqrt(Real x)``` <a name="sqrt"></a>
 
 **Description:** Returns the square root of x
 
@@ -347,7 +375,7 @@ $result:=$math.sqrt(9)
 ```
 
 
-## ```sum(Real x, Real y, Real z,..., Real n)```
+## ```sum(Real x, Real y, Real z,..., Real n)``` <a name="sum"></a>
 
 **Description:** Returns the sum of inputted values
 
@@ -360,7 +388,7 @@ $result:=$math.sum(1;2;3;4;5)
 ```
 
 
-## ```tan(Real x)```
+## ```tan(Real x)``` <a name="tan"></a>
 
 **Description:** Returns the tangent of x,  where x is in Radians
 
@@ -374,7 +402,7 @@ $result:=$math.tan($pi)
 ```
 
 
-## ```toDegrees(Real x)```
+## ```toDegrees(Real x)``` <a name="toDegrees"></a>
 
 **Description:** Converts an angle measured in radians to an approximately equivalent angle measured in degrees
 
@@ -388,7 +416,7 @@ $result:=$math.toDegrees($pi)
 ```
 
 
-## ```toRadians(Real x)```
+## ```toRadians(Real x)``` <a name="toRadians"></a>
 
 **Description:** Converts an angle measured in degrees to an approximately equivalent angle measured in radians.
 
@@ -401,7 +429,7 @@ $result:=$math.toRadians(180)
     // Return 2.14159... <--- (π)
 ```
 
-## ```toString(Real x)```
+## ```toString(Real x)``` <a name="toString"></a>
 
 **Description:** Converts a value of type Real to type Text
 
