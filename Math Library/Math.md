@@ -79,7 +79,7 @@ $result:=$math.cbrt(16)
 
 ```4D
 var $result : Real
-$result:=$math.ceil(-4)
+$result:=$math.ceil(4.02)
     //Returns 5
 ```
 
@@ -105,8 +105,9 @@ $result:=$math.copySign(4;-3)
 
 ```4D
 var $result : Real
-$result:=$math.cos(-4)
-    //Returns 5
+$pi:=$math.PI
+$result:=$math.cos($pi)
+    //Returns 1
 ```
 
 
@@ -118,8 +119,8 @@ $result:=$math.cos(-4)
 
 ```4D
 var $result : Real
-$result:=$math.exp(1)
-    //Returns e
+$result:=$math.exp(3)
+    //Returns e^3
 ```
 
 
@@ -127,10 +128,10 @@ $result:=$math.exp(1)
 
 **Description:** Returns the factorial of x
 
-**Parameters:** Takes one NON-NEGATIVE parameters of type Real
+**Parameters:** Takes one NON-NEGATIVE parameters of type Integer
 
 ```4D
-var $result : Real
+var $result : Integer
 $result:=$math.factorial(5)
     //Returns 120
 ```
@@ -144,8 +145,11 @@ $result:=$math.factorial(5)
 
 ```4D
 var $result : Real
-$result:=$math.floor(-4)
-    //Returns 5
+$result:=$math.floor(4.05)
+    //Returns 4
+
+$result:=$math.floor(-4.05)
+    //Returns -5
 ```
 
 
@@ -170,7 +174,9 @@ $result:=$math.hypot(3;4)
 
 ```4D
 var $result : Real
-$result:=$math.log(-4)
+$e:=$math.E
+$result:=$math.log($e)
+    // Returns 1
 ```
 
 
@@ -182,7 +188,8 @@ $result:=$math.log(-4)
 
 ```4D
 var $result : Real
-$result:=$math.max(-4)
+$result:=$math.max(4;5;2;7;3)
+    // Returns 7
 ```
 
 
@@ -194,7 +201,8 @@ $result:=$math.max(-4)
 
 ```4D
 var $result : Real
-$result:=$math.min(-4)
+$result:=$math.min(4;5;2;7;3)
+    // Returns 2
 ```
 
 
@@ -206,27 +214,70 @@ $result:=$math.min(-4)
 
 ```4D
 var $result : Real
-$result:=$math.pow(-4)
+$result:=$math.pow(3;2)
+    // Returns 9
 ```
 
 
 ## ```random()```
-Takes zero, one, or two parameters
-
-### ```random()```
+#### Takes zero, one, or two parameters
 
 
-**Description:** 
+1. ### ```random()```
 
-**Parameters:** 
+    **Description:** Returns a number between 0 (inclusive) and 1 (exclusive)
 
-```4D
-var $result : Real
-$result:=$math.random(-4)
-```
+    **Parameters:** Takes no parameters
 
+    ```4D
+    var $result : Real
+    $result:=$math.random()
+        // Return 0.3210269206472 for example
+    ```
+2.  ### ```random(Real x)```
+    **Description:** Returns a number between 0 (inclusive) and x (inclusive)
 
+    **Parameters:** Takes one parameter of type Real
+
+    ```4D
+    var $result : Real
+    $result:=$math.random(5)
+        // Return 3 for example
+    ```
+3.  ### ```random(Real x, Real y)```
+    **Description:** Returns a number between x (inclusive) and y (inclusive)
+
+    **Parameters:** Takes two parameter of type Real
+
+    ```4D
+    var $result : Real
+    $result:=$math.random(2;5)
+        // Return 3 for example
+    ```
 ## ```round()```
+#### Takes one, or two parameters
+
+1.  ### ```round(Real x)```
+    **Description:** Returns x rounded to the nearest Integer
+
+    **Parameters:** Takes one parameter of type Real
+
+    ```4D
+    var $result : Real
+    $result:=$math.round(2.575)
+        // Return 3
+    ```
+
+2.  ### ```round(Real x, Int y)```
+    **Description:** Returns x rounded to y decimal places
+
+    **Parameters:** Takes two parameter, x of type Real, y of type Int
+
+    ```4D
+    var $result : Real
+    $result:=$math.round(2.575;2)
+        // Return 2.58
+    ```
 
 **Description:** Returns
 
