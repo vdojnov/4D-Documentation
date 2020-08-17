@@ -34,12 +34,292 @@ $e:=$math.E
 ## Functions
 
 ### abs()
-Returns the absolute value of x (|_x_|)
+**Description:** Returns the absolute value of x (|_x_|)
 
-`Math.abs(`_x_`)`
+**Parameters:** Takes one parameter of type Real
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+    //Returns 4
+```
+
+### average()
+
+**Description:** Returns the average of the value of parameters
+
+**Parameters:** Take at least two or more parameters of type Real
+
+```4D
+var $avg : Real
+$avg:=$math.average(1;2;3;4;5)
+    //Returns 3
+```
+
+## cbrt()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## ceil()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## copySign()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## cos()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## exp()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## factorial()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## floor()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## hypot()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## log()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## max()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## min()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## pow()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## random()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## round()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## sign()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## sin()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## sqrt()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## sum()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## tan()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## toDegrees()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
+
+
+## toRadians()
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
 
 
 
 
 
+
+
+
+**Description:** 
+
+**Parameters:** 
+
+```4D
+var $absVal : Real
+$absVal:=$math.abs(-4)
+```
 
