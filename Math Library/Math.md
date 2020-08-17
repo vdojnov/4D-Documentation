@@ -32,7 +32,7 @@
     1. [toRadians()](#toRadians)
     1. [toString()](#toString)
 
-## Instantiation a name="Instantiation"></a>
+## Instantiation <a name="Instantiation"></a>
 
 To instantiate a new Math Class to be able to use the functions you need to declare a new variable, and create the new object.
 
