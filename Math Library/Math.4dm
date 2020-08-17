@@ -1,42 +1,74 @@
 Class constructor
+	
+	//STATUS MESSAGES
 	This.success:="Success"
 	This.invalidInput:="Error: Invalid Input"
 	This.divideByZero:="Error: Cannot divide by zero"
 	
+	
+	//CONSTANTS
+	//---------
+	This.E:=e number
+	This.PI:=Pi
+	
+	
+	
 Function sum
-	C_COLLECTION($1;$coll)
-	C_REAL($0;$sum)
-	C_LONGINT($length;$i)
-	$coll:=$1
-	$length:=$coll.length
-	$i:=0
-	While ($i<$length)
-		$sum:=$sum+$coll[$i]
-		$i:=$i+1
-	End while 
+	var $0,$1,$sum : Real
+	C_real({$2})
+	var $numParameters, $i : Integer
+	$numParameters:=Count parameters
+	$sum:=0
+	Case of 
+		: ($numParameters>1)
+			For ($i;1;$numParameters)
+				$sum:=$sum+${$i}
+			End for 
+		Else 
+			ALERT(This.invalidInput)
+	End case 
 	$0:=$sum
 	
+	
 Function average
-	C_COLLECTION($1;$coll)
-	C_REAL($0)
-	C_LONGINT($length;$i)
-	$coll:=$1
-	$length:=$coll.length
-	
-	$0:=This.sum($coll)/$length
-	
+	var $0,$1,$sum,$average : Real
+	C_real({$2})
+	var $numParameters, $i : Integer
+	$numParameters:=Count parameters
+	$sum:=0
+	Case of 
+		: ($numParameters>1)
+			For ($i;1;$numParameters)
+				$sum:=$sum+${$i}
+			End for 
+		Else 
+			ALERT(This.invalidInput)
+	End case 
+	$average:=$sum/$numParameters
+	$0:=$average
 	
 Function min
-	C_REAL($0;$1;$2;$result;$num1;$num2)
-	$num1:=$1
-	$num2:=$2
+	var $0,$1,$result : Real
+	var $numParameters, $i: Integer
+	C_REAL({$2})
+	var $collection : Collection
+	var $textParameters : Text
 	
-	If ($num1<=$num2)
-		$result:=$num1
-	Else 
-		$result:=$num2
-	End if 
-	
+	$collection:=New collection
+	$numParameters:=Count parameters
+	Case of 
+		: ($numParameters>1)
+			For ($i;1;$numParameters)
+				$collection.push(${$i})
+				$textParameters:=$textParameters+String(${$i})
+				If ($i#$numParameters)
+					$textParameters:=$textParameters+";"
+				End if 
+			End for 
+		Else 
+			ALERT(This.invalidInput)
+	End case 
+	$result:=$collection.min()
 	$0:=$result
 	
 Function sqrt
@@ -44,6 +76,7 @@ Function sqrt
 	$0:=Square root($1)
 	
 Function cbrt
+	SET REAL COMPARISON LEVEL(10^-20)
 	var $0,$1,$num,$result : Real
 	$num:=$1
 	
@@ -80,9 +113,9 @@ Function abs
 	
 	
 Function ceil
+	SET REAL COMPARISON LEVEL(10^-20)
 	var $1,$num,$difference : Real
 	var $result,$0 : Integer
-	
 	$num:=$1
 	$difference:=Dec($num)
 	
@@ -95,6 +128,7 @@ Function ceil
 	
 	$0:=$result
 	
+	//Returns the largest integer less than or equal to x
 Function floor
 	var $0,$result : Integer
 	var $1,$num : Real
@@ -120,7 +154,7 @@ Function cos
 			$result:=Cos($radian)
 	End case 
 	
-	$0:=$result
+	$0:=this.round($result;8)
 	
 	
 Function tan
@@ -139,11 +173,12 @@ Function tan
 			$result:=Tan($radian)
 	End case 
 	
-	$0:=$result
+	$0:=this.round($result;8)
 	
 	
 	
 Function sin
+	SET REAL COMPARISON LEVEL(10^-200)
 	var $0,$1,$result,$radian,$degree : Real
 	var $2,$isRadian : Boolean
 	
@@ -159,17 +194,17 @@ Function sin
 			$result:=Sin($radian)
 	End case 
 	
-	$0:=$result
-	
+	$0:=this.round($result;8)
 	
 Function exp
+	SET REAL COMPARISON LEVEL(10^-20)
 	var $0,$1 : Real
 	$0:=Exp($1)
 	
 Function log
+	SET REAL COMPARISON LEVEL(10^-20)
 	var $0,$1 : Real
 	$0:=Log($1)
-	
 	
 Function random
 	var $0,$1,$2,$random,$vStart,$vEnd : Real
@@ -188,7 +223,6 @@ Function random
 			$vEnd:=$2
 			$random:=(Random%($vEnd-$vStart+1))+$vStart
 	End case 
-	
 	$0:=$random
 	
 Function factorial
@@ -209,7 +243,7 @@ Function factorial
 			End while 
 			$statusMessage:=This.success
 	End case 
-	$function:=This.functionToText("factorial";$1)
+	$function:=This.functionToText("factorial";string($1))
 	This.consoleLog($function;$statusMessage;$result)
 	$0:=$result
 	
@@ -222,19 +256,10 @@ Function toString
 	var $0 : Text
 	$0:=String($1)
 	
-	
 Function int
 	var $1 : Real
 	var $0 : Integer
 	$0:=Int($1)
-	
-	
-	
-	//-----------------------------------
-	// CONSTANTS
-Function pi
-	var $0 : Real
-	$0:=Pi
 	
 Function toRadians
 	var $0,$1,$radian,$degree : Real
@@ -248,15 +273,9 @@ Function toDegrees
 	$degree:=$radian/Degree
 	$0:=$degree
 	
-Function e
-	var $0 : Real
-	$0:=e number
-	
-	
 Function sign
 	var $1,$0,$num,$sign : Real
 	$num:=$1
-	
 	Case of 
 		: ($num=0)
 			$sign:=0
@@ -265,23 +284,52 @@ Function sign
 		: ($num<0)
 			$sign:=-1
 	End case 
-	
 	$0:=$sign
 	
-Function max
-	C_REAL($0;$1;$2;$result;$num1;$num2)
-	var $statusMessage,$function : Text
-	$function:=This.functionToText("max";$1;$2)
+	
+	//copysign(x, y) Returns x with the sign of y
+Function copySign
+	var $0,$1,$2,$result,$num1, $num2: Real
 	$num1:=$1
 	$num2:=$2
 	
-	If ($num1>=$num2)
-		$result:=$num1
-		$statusMessage:=This.success
-	Else 
-		$result:=$num2
-		$statusMessage:=This.success
-	End if 
+	Case of 
+		: (($num1< 0) & ($num2 < 0))
+			$result:=$num1
+		: (($num1>=0) & ($num2<0))
+			$result:=$num1*-1
+		: (($num1>=0) & ($num2>=0))
+			$result:=$num1
+		: (($num1< 0) & ($num2>=0))
+			$result:=$num1*-1
+	End case
+	
+	$0:=$result
+	
+Function max
+	var $1,$0,$result : Real
+	c_real({$2})
+	var $numParameters, $i :Integer
+	var $collection : Collection
+	var $statusMessage,$function,$textParameters : Text
+	$collection:=New collection
+	$numParameters:=Count parameters
+	Case of 
+		: ($numParameters>1)
+			For ($i;1;$numParameters)
+				$collection.push(${$i})
+				$textParameters:=$textParameters+String(${$i})
+				If ($i#$numParameters)
+					$textParameters:=$textParameters+";"
+				End if 
+			End for 
+			$statusMessage:=This.success
+			$function:=This.functionToText("max";$textParameters)
+		Else 
+			$statusMessage:=This.invalidInput
+			$function:=This.functionToText("max";string($1))
+	End case 
+	$result:=$collection.max()
 	This.consoleLog($function;$statusMessage;$result)
 	$0:=$result
 	
@@ -312,7 +360,7 @@ Function functionToText
 	//functionToText($funcName; $param1; $param2; $param3)
 	
 	var $1,$0,$result,$funcName,$param1,$param2,$param3 : Text
-	var $2,$3,$4 : Real
+	var $2,$3,$4 : text
 	$funcName:=$1
 	$param1:=String($2)
 	$param2:=String($3)
@@ -330,17 +378,6 @@ Function functionToText
 	End case 
 	$0:=$result
 	
-	
-	
-	
-	
-	// TODO
-	// --------
-	//-log10
-	//-copysign
-	//-allow sum and average to take collections and numbers
-	//gcd() greatest common divisor
-	//perm() python permutation
 	
 	
 	// ASSERT Library https://www.tutorialspoint.com/junit/junit_using_assertion.htm
