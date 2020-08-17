@@ -1,6 +1,9 @@
 <!-- Type your summary here -->
 # Math Library Documentation
 
+[Constants](#constants)
+[Functions](#functions)
+
 ## Instantiation 
 
 To instantiate a new Math Class to be able to use the functions you need to declare a new variable, and create the new object.
@@ -12,7 +15,7 @@ $math:=cs.Math.new()
 ```
 We can now use the $math Variable to perform math functions and access math constants.
 
-## Constants
+## Constants <a name="constants"></a>
 
 ### PI
 The mathematical constant pi (_π_), approximately `3.14159`.
@@ -31,7 +34,7 @@ var $e : Real
 $e:=$math.E
 ```
 
-## Functions
+## Functions <a name="functions"></a>
 
 ### ```abs(Real x)```
 
