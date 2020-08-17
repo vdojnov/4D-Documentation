@@ -66,6 +66,7 @@ $result:=$math.average(1;2;3;4;5)
 ```4D
 var $result : Real
 $result:=$math.cbrt(16)
+    //Returns 4
 ```
 
 
@@ -79,6 +80,7 @@ $result:=$math.cbrt(16)
 ```4D
 var $result : Real
 $result:=$math.ceil(-4)
+    //Returns 5
 ```
 
 
@@ -91,6 +93,7 @@ $result:=$math.ceil(-4)
 ```4D
 var $result : Real
 $result:=$math.copySign(4;-3)
+    //Returns -4
 ```
 
 
@@ -103,6 +106,7 @@ $result:=$math.copySign(4;-3)
 ```4D
 var $result : Real
 $result:=$math.cos(-4)
+    //Returns 5
 ```
 
 
@@ -114,7 +118,8 @@ $result:=$math.cos(-4)
 
 ```4D
 var $result : Real
-$result:=$math.exp(-4)
+$result:=$math.exp(1)
+    //Returns e
 ```
 
 
@@ -127,6 +132,7 @@ $result:=$math.exp(-4)
 ```4D
 var $result : Real
 $result:=$math.factorial(5)
+    //Returns 120
 ```
 
 
@@ -139,6 +145,7 @@ $result:=$math.factorial(5)
 ```4D
 var $result : Real
 $result:=$math.floor(-4)
+    //Returns 5
 ```
 
 
@@ -150,7 +157,8 @@ $result:=$math.floor(-4)
 
 ```4D
 var $result : Real
-$result:=$math.hypot(-4)
+$result:=$math.hypot(3;4)
+    //Returns 5
 ```
 
 
