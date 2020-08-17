@@ -190,7 +190,7 @@ $result:=$math.min(-4)
 ```
 
 
-## ```pow(x, y)```
+## ```pow(Real x, Real y)```
 
 **Description:** Returns x raised to the power y
 
@@ -230,11 +230,11 @@ $result:=$math.round(-4)
 ```
 
 
-## ```sign()```
+## ```sign(x)```
 
-**Description:** 
+**Description:** Returns the sign of the x, indicating whether x is positive (+1), negative (-1), or zero(0).
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -242,11 +242,11 @@ $result:=$math.sign(-4)
 ```
 
 
-## ```sin()```
+## ```sin(Real x)```
 
-**Description:** 
+**Description:**  Returns the sine of x, where x is in Radians
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -254,11 +254,11 @@ $result:=$math.sin(-4)
 ```
 
 
-## ```sqrt()```
+## ```sqrt(Real x)```
 
-**Description:** 
+**Description:** Returns the square root of x
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -278,11 +278,11 @@ $result:=$math.sum(-4)
 ```
 
 
-## ```tan()```
+## ```tan(Real x)```
 
-**Description:** 
+**Description:** Returns the tangent of x,  where x is in Radians
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -290,11 +290,11 @@ $result:=$math.tan(-4)
 ```
 
 
-## ```toDegrees()```
+## ```toDegrees(Real x)```
 
-**Description:** 
+**Description:** Converts an angle measured in radians to an approximately equivalent angle measured in degrees
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
@@ -302,11 +302,11 @@ $result:=$math.toDegrees(-4)
 ```
 
 
-## ```toRadians()```
+## ```toRadians(Real x)```
 
-**Description:** 
+**Description:** Converts an angle measured in degrees to an approximately equivalent angle measured in radians.
 
-**Parameters:** 
+**Parameters:** Takes one parameters of type Real
 
 ```4D
 var $result : Real
