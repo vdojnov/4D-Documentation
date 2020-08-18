@@ -1,0 +1,116 @@
+﻿{
+	"Sources/Classes/Math.4dm": {
+		"left": 1088,
+		"top": 109,
+		"width": 823,
+		"height": 977
+	},
+	"Sources/Methods/testMathClass.4dm": {
+		"left": 387,
+		"top": 109,
+		"width": 685,
+		"height": 931
+	},
+	"Sources/Forms/Form1/ObjectMethods/Web Area.4dm": {
+		"left": 43,
+		"top": 112,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Forms/Form1/method.4dm": {
+		"left": 316,
+		"top": 298,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Methods/TestMathLog.4dm": {
+		"left": 12,
+		"top": 110,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Console/method.4dm": {
+		"left": 15,
+		"top": 263,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/TableForms/3/Output/method.4dm": {
+		"left": 15,
+		"top": 263,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Console/ObjectMethods/Button.4dm": {
+		"left": 8,
+		"top": 547,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Console/ObjectMethods/Button2.4dm": {
+		"left": 15,
+		"top": 263,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Console/ObjectMethods/Refresh.4dm": {
+		"left": 8,
+		"top": 547,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Console/ObjectMethods/Limit 5.4dm": {
+		"left": 15,
+		"top": 263,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Forms/Form1/ObjectMethods/Refresh.4dm": {
+		"left": 43,
+		"top": 112,
+		"width": 946,
+		"height": 931
+	},
+	"Trash/Methods/(consoleLog).4dm": {
+		"left": 236,
+		"top": 235,
+		"width": 685,
+		"height": 745
+	},
+	"Sources/Triggers/table_3.4dm": {
+		"left": 756,
+		"top": 119,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Methods/import Math.4dm": {
+		"left": 618,
+		"top": 152,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Methods/testUnitTestORDA.4dm": {
+		"left": 851,
+		"top": 222,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Forms/SingleConsole/method.4dm": {
+		"left": 154,
+		"top": 164,
+		"width": 1287,
+		"height": 954
+	},
+	"Sources/Methods/consoleLog.4dm": {
+		"left": 806,
+		"top": 109,
+		"width": 946,
+		"height": 931
+	},
+	"Sources/Methods/import coll.4dm": {
+		"left": 43,
+		"top": 112,
+		"width": 946,
+		"height": 931
+	}
+}

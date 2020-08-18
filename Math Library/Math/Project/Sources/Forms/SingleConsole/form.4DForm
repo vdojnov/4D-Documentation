@@ -1,0 +1,61 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onValidate",
+		"onClick",
+		"onOutsideCall",
+		"onDoubleClick",
+		"onDrop",
+		"onMenuSelect",
+		"onPluginArea",
+		"onDragOver",
+		"onTimer",
+		"onAfterKeystroke",
+		"onMouseEnter",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
+	],
+	"windowTitle": "Single Console",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Refresh": {
+					"type": "button",
+					"text": "Refresh",
+					"top": 96,
+					"left": 28,
+					"width": 179,
+					"height": 33,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Refresh.4dm"
+				}
+			}
+		}
+	],
+	"inheritedFormTable": "MathLog",
+	"geometryStamp": 14,
+	"inheritedForm": "Output",
+	"method": "method.4dm",
+	"shared": false,
+	"menuBar": "None"
+}

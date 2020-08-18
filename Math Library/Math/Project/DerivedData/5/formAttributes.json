@@ -1,0 +1,12 @@
+﻿{
+	"forms": {
+		"input": {
+			"timeStamp": "2020-08-14T09:01:50.715Z",
+			"destination": "detailScreen"
+		},
+		"output": {
+			"timeStamp": "2020-08-14T09:04:33.542Z",
+			"destination": "listScreen"
+		}
+	}
+}

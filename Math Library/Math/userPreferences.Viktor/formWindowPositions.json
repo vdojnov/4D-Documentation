@@ -1,0 +1,14 @@
+﻿{
+	"Sources/Forms/SingleConsole/form.4DForm": {
+		"left": 150,
+		"top": 152,
+		"width": 951,
+		"height": 400
+	},
+	"Sources/Forms/Form1/form.4DForm": {
+		"left": 150,
+		"top": 152,
+		"width": 1366,
+		"height": 751
+	}
+}

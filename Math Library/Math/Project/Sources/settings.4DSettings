@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><preferences stamp="29">
+	<com.4d>
+		<web>
+			<standalone_server>
+				<configuration listening_address="192.168.99.1" port_number="80"/>
+				<rest launch_at_startup="true"/>
+				<webservices>
+					<server name="A_WebService"/>
+				</webservices>
+				<options>
+					<keep_alive requests_number="100"/>
+					<cache cache_max_size="524288"/>
+				</options>
+			</standalone_server>
+		</web>
+		<compiler>
+			<options compilation_path="3" initialize_local_variables="1"/>
+		</compiler>
+	</com.4d>
+</preferences>

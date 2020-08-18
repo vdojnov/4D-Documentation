@@ -1,0 +1,35 @@
+﻿{
+	"editors": [
+		{
+			"type": "method",
+			"id": 2147483642,
+			"codeDescriptor": {
+				"type": 1,
+				"methodName": "TestMathLog"
+			}
+		},
+		{
+			"type": "method",
+			"id": 2147483639,
+			"codeDescriptor": {
+				"type": 11,
+				"className": "Math",
+				"methodPath": "/SOURCES/Classes/Math.4dm"
+			}
+		},
+		{
+			"type": "explorer"
+		},
+		{
+			"type": "structure"
+		},
+		{
+			"type": "method",
+			"id": 2147483643,
+			"codeDescriptor": {
+				"type": 1,
+				"methodName": "testMathClass"
+			}
+		}
+	]
+}

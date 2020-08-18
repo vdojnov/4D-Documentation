@@ -1,0 +1,234 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"events": [
+		"onLoad",
+		"onPageChange",
+		"onValidate",
+		"onClick",
+		"onDoubleClick",
+		"onOutsideCall",
+		"onBeginDragOver",
+		"onDragOver",
+		"onDrop",
+		"onAfterKeystroke",
+		"onMenuSelect",
+		"onPluginArea",
+		"onAfterEdit",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"List Box": {
+					"type": "listbox",
+					"top": 17,
+					"left": 14,
+					"width": 274,
+					"height": 211,
+					"resizingMode": "legacy",
+					"dataSource": "Form:C1466.currentSelection",
+					"rowHeight": "20px",
+					"horizontalLineStroke": "#AAAAAA",
+					"verticalLineStroke": "#AAAAAA",
+					"stroke": "#000000",
+					"fill": "#FFFFFF",
+					"alternateFill": "#EEEEEE",
+					"listboxType": "collection",
+					"columns": [
+						{
+							"name": "Column1",
+							"width": 80,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#EEEEEE",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header1",
+								"text": "Header1",
+								"dataSource": "Header1",
+								"stroke": "#000000"
+							},
+							"footer": {
+								"name": "Footer1",
+								"timeFormat": "hh_mm_ss",
+								"stroke": "#000000",
+								"fill": "#FFFFFF"
+							},
+							"dataSource": "This:C1470.val"
+						},
+						{
+							"name": "Column2",
+							"width": 80,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#EEEEEE",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header2",
+								"text": "Header2",
+								"dataSource": "Header2",
+								"stroke": "#000000"
+							},
+							"footer": {
+								"name": "Footer2",
+								"timeFormat": "hh_mm_ss",
+								"stroke": "#000000",
+								"fill": "#FFFFFF"
+							}
+						},
+						{
+							"name": "Column3",
+							"width": 85,
+							"minWidth": 10,
+							"maxWidth": 32000,
+							"stroke": "#000000",
+							"fill": "#FFFFFF",
+							"alternateFill": "#EEEEEE",
+							"events": [
+								"onClick",
+								"onDataChange"
+							],
+							"header": {
+								"name": "Header3",
+								"text": "Header3",
+								"dataSource": "Header3",
+								"stroke": "#000000"
+							},
+							"footer": {
+								"name": "Footer3",
+								"timeFormat": "hh_mm_ss",
+								"stroke": "#000000",
+								"fill": "#FFFFFF"
+							}
+						}
+					]
+				},
+				"listbox": {
+					"type": "listbox",
+					"dataSource": "Form:C1466.currentSelection",
+					"top": 17,
+					"left": 321,
+					"width": 730,
+					"height": 300,
+					"visibility": "visible",
+					"sizingX": "fixed",
+					"sizingY": "grow",
+					"headerHeight": "2em",
+					"listboxType": "collection",
+					"scrollbarHorizontal": "automatic",
+					"scrollbarVertical": "automatic",
+					"resizingMode": "legacy",
+					"columns": [
+						{
+							"name": "date",
+							"dataSource": "This:C1470.date",
+							"width": 120,
+							"enterable": true,
+							"header": {
+								"text": "Date",
+								"name": ""
+							},
+							"footer": {
+								"name": "1"
+							}
+						},
+						{
+							"name": "function",
+							"dataSource": "This:C1470.function",
+							"width": 120,
+							"enterable": true,
+							"header": {
+								"text": "Function",
+								"name": "2"
+							},
+							"footer": {
+								"name": "3"
+							}
+						},
+						{
+							"name": "ID",
+							"dataSource": "This:C1470.ID",
+							"width": 120,
+							"enterable": false,
+							"header": {
+								"text": "Id",
+								"name": "4"
+							},
+							"footer": {
+								"name": "5"
+							}
+						},
+						{
+							"name": "message",
+							"dataSource": "This:C1470.message",
+							"width": 120,
+							"enterable": true,
+							"header": {
+								"text": "Message",
+								"name": "6"
+							},
+							"footer": {
+								"name": "7"
+							}
+						},
+						{
+							"name": "result",
+							"dataSource": "This:C1470.result",
+							"width": 120,
+							"enterable": true,
+							"header": {
+								"text": "Result",
+								"name": "8"
+							},
+							"footer": {
+								"name": "9"
+							}
+						},
+						{
+							"name": "time",
+							"dataSource": "This:C1470.time",
+							"width": 120,
+							"enterable": true,
+							"header": {
+								"text": "Time",
+								"name": "10"
+							},
+							"footer": {
+								"name": "11"
+							}
+						}
+					]
+				}
+			}
+		}
+	],
+	"geometryStamp": 5,
+	"method": "method.4dm"
+}
