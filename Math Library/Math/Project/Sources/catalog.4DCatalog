@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE base SYSTEM "http://www.4d.com/dtd/2007/base.dtd" >
-<base name="" uuid="DC0EDD5CD3653D4781F29D2E6990764D" collation_locale="en">
+<base name="Math" uuid="DC0EDD5CD3653D4781F29D2E6990764D" collation_locale="en">
 	<schema name="DEFAULT_SCHEMA"/>
 	<table name="(names)" uuid="ECCB8C561CDB5049B0250D4029C857E5" id="1" hide_in_REST="true">
 		<field name="ID" uuid="3216D2E438C18C499915201FE92AF98C" type="4" unique="true" autosequence="true" not_null="true" id="1"/>

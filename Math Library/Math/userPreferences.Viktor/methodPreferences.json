@@ -36,8 +36,8 @@
 		"stamp": "2020-08-18T02:32:01.080Z"
 	},
 	"Sources/Methods/TestMathLog.4dm": {
-		"startSelection": 82,
-		"endSelection": 82,
+		"startSelection": 80,
+		"endSelection": 80,
 		"firstSelectedLine": 20,
 		"lastSelectedLine": 20,
 		"folding": [],

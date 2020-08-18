@@ -141,6 +141,20 @@ $result:=$math.cos($pi)
     //Returns -1
 ```
 
+Cos can also take an additional parameter:
+
+ 1. ### ```cos(Real x, Boolean isRadian)```
+
+    **Description:** Returns the cosine of x, and takes another boolean parameter that specifies if x is a radian (or in degrees) 
+
+    **Parameters:** Takes one parameters of type Real, and one Boolean
+
+    ```4D
+    var $result : Real
+    $result:=$math.cos(180; False)
+        //Returns -1
+    ``` 
+
 
 ## ```exp(Real x)``` <a name="exp"></a>
 
@@ -361,6 +375,18 @@ $result:=$math.sin($pi)
     // Returns 0
 ```
 
+1. ### ```sin(Real x, Boolean isRadian)```
+
+    **Description:** Returns the sine of x, and takes another boolean parameter that specifies if x is a radian (or in degrees) 
+
+    **Parameters:** Takes one parameters of type Real, and one Boolean
+
+    ```4D
+    var $result : Real
+    $result:=$math.sin(180; False)
+        //Returns 0
+    ``` 
+
 
 ## ```sqrt(Real x)``` <a name="sqrt"></a>
 
@@ -400,6 +426,17 @@ $pi:=$math.PI
 $result:=$math.tan($pi)
     // Returns -1
 ```
+1. ### ```tan(Real x, Boolean isRadian)```
+
+    **Description:** Returns the tangent of , and takes another boolean parameter that specifies if x is a radian (or in degrees) 
+
+    **Parameters:** Takes one parameters of type Real, and one Boolean
+
+    ```4D
+    var $result : Real
+    $result:=$math.tan(180; False)
+        //Returns -1
+    ``` 
 
 
 ## ```toDegrees(Real x)``` <a name="toDegrees"></a>

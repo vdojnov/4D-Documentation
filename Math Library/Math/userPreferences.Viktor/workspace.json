@@ -1,6 +1,9 @@
 ﻿{
 	"editors": [
 		{
+			"type": "explorer"
+		},
+		{
 			"type": "method",
 			"id": 2147483642,
 			"codeDescriptor": {
@@ -16,9 +19,6 @@
 				"className": "Math",
 				"methodPath": "/SOURCES/Classes/Math.4dm"
 			}
-		},
-		{
-			"type": "explorer"
 		},
 		{
 			"type": "structure"
