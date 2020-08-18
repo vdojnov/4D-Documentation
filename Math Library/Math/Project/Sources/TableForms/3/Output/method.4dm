@@ -1,1 +1,0 @@
-ALL RECORDS:C47([MathLog:3])
